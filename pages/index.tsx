@@ -1,5 +1,6 @@
 import type { NextPage } from 'next'
-import { ImHeart,ImHeartBroken } from 'react-icons/im'
+import {AiOutlineClose} from "react-icons/ai"
+import {FiMenu} from "react-icons/fi"
 import Head from 'next/head'
 import Image from 'next/image'
 import Page from './layouts/Page'
@@ -7,25 +8,51 @@ import Introduction from './components/Introduction'
 import AboutMe from './components/AboutMe'
 import MySkills from './components/MySkills'
 import MyProjects from './components/MyProjects'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 
 const Home: NextPage = () => {
   const styleIconMenu = "cursor-pointer z-[99] text-white text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out"
   const [showSidebar, setShowSidebar] = useState(false)
+  const [activeId, setActiveId] = useState("")
+  
   const handleShowSidebar = ()=>{
-    console.log("oke")
     setShowSidebar(!showSidebar)
+  }
+
+  useEffect(()=>{
+    const articles = document.querySelectorAll("article")
+    const observer = new IntersectionObserver(handleIntersection,options)
+    articles.forEach(article=>{
+      observer.observe(article)
+    })
+    return ()=>{
+      articles.forEach(article=>{
+        observer.unobserve(article)
+      })
+    }
+
+  },[])
+
+  const handleIntersection = (entries)=>{
+    entries.forEach(entry=>{
+      console.log("test: ", entry.target.id)
+      entry.isIntersecting && setActiveId(`#${entry.target.id}`)
+    })
+  }
+  const options = {
+    threshold: 0.6,
+    
   }
   return (
       <Page title={"Portofolio"} type={"homepage"} showSidebar={showSidebar}>
-        <>
-          <Sidebar setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
+        <div className='cotainer-articles'>
+          <Sidebar activeId={activeId} setActiveId={setActiveId} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
           {
             showSidebar?(
-              <ImHeartBroken onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
+              <AiOutlineClose onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
             ):(
-              <ImHeart onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
+              <FiMenu onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
             )
           }
           
@@ -33,7 +60,7 @@ const Home: NextPage = () => {
           <AboutMe/>
           <MySkills/>
           <MyProjects/>
-        </>
+        </div>
       </Page>
   )
 }

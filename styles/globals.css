@@ -23,6 +23,15 @@ html{
     .container{
         @apply max-w-[1500px] mx-auto min-h-screen bg-slate-900
     }
+    .scrollbar-hidden::-webkit-scrollbar {
+        display: none;
+      }
+      
+      /* Hide scrollbar for IE, Edge add Firefox */
+    .scrollbar-hidden {
+        -ms-overflow-style: none;
+        scrollbar-width: none; /* Firefox */
+    }
 }
 
 @layer utilities{
