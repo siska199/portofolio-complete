@@ -1,4 +1,5 @@
 import React from 'react'
+import Link from 'next/link'
 
 const Project = ({data, active, prevElement}) => {
   console.log("active",active)
@@ -11,7 +12,7 @@ const Project = ({data, active, prevElement}) => {
         <div className='absolute left-14 bottom-[-1rem] flex justify-center gap-3 '>
           {
             data.stacks.map((data,i)=>(
-              <img src={data.image} className="w-8 h-8 " alt="" />
+              <img src={data.image} className="w-8 h-8 object-contain" alt="" />
             ))
           }
         </div>
@@ -21,12 +22,16 @@ const Project = ({data, active, prevElement}) => {
         <h1 className='text-[2.1rem] font-bold text-slate-600'>{data.tittle}</h1>
         <p className='text-justify font-semibold text-slate-300'>{data.detailApp}</p>
         <div className='flex space-x-3'>
-          <a className={styleButton}>
-            📂 Github Repo
-          </a>
-          <button className={styleButton}>
-            View Demo
-          </button>
+          <Link href={data.linkGithub}>
+            <a className={styleButton} target="_blank">
+              📂 Github Repo
+            </a>
+          </Link>
+          <Link href={data.linkDemo}>
+            <a className={styleButton} target="_blank">
+              View Demo
+            </a>
+          </Link>
         </div>
         <div className=''>
           {

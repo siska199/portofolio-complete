@@ -1,7 +1,7 @@
 import Head from 'next/head'
 import React from 'react'
 
-const Page = ({children, title, type}) => {
+const Page = ({children, title, type, showSidebar}) => {
 
   let customeStyle 
   switch(type){
@@ -9,7 +9,7 @@ const Page = ({children, title, type}) => {
       customeStyle = ""
       break;
     case "homepage":
-      customeStyle = ""
+      customeStyle = ''
       break;
     case "profile":
       customeStyle = ""

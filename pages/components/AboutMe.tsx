@@ -1,11 +1,12 @@
 import React from 'react'
+import Link from 'next/link'
 import Section from '../layouts/Section'
 
 const AboutMe = () => {
     const styleMarkStack = "bg-slate-500 px-2 text-sm font-bold mx-1"
     const styleButton = " p-2 border-[0.005rem] border-slate-600 hover:bg-slate-600"
   return (
-    <Section>
+    <Section id="about-me">
         <div className='flex w-3/4 justify-center items-center'>
             <div className=' flex p-4 '>
                 <img src="me.png" className='object-contain m-auto w-[20rem] h-[25rem]' alt="" />
@@ -23,11 +24,19 @@ const AboutMe = () => {
                     with ORM as database. I can also using <span className={styleMarkStack}>Graphql</span> as the query language.
                 </p>
                 <p className='text-sm font-bold'>
-                    Note: i am a progremmer (Profesional Google Reasearcher) 
+                    Note: i am a progremmer 👩‍💻 (Profesional Google Reasearcher) 
                 </p>
                 <div className='flex gap-4 font-semibold'>
-                    <button className={styleButton}>Download My CV</button>
-                    <button className={styleButton}>View My Github</button>
+                    <Link href="">
+                        <a className={styleButton} target="_black">
+                            Download CV
+                        </a>
+                    </Link>
+                    <Link href="https://github.com/siska199">
+                        <a className={styleButton} target="_black">
+                            View My Github
+                        </a>
+                    </Link>
                 </div>
             </div>
         </div>

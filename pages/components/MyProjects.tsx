@@ -16,7 +16,7 @@ const MyProjects = () => {
         setIndexData(prev=>(prev+1))
     }
   return (
-    <Section>
+    <Section id="my-projects">
         {
             indexData>0&&(
                 <button onClick={()=>handlePrevButton()} className={`${styleButtonSlider} left-0`}>
@@ -25,7 +25,7 @@ const MyProjects = () => {
             )
         }
         <div className='flex flex-col  w-full gap-[5rem] px-[5rem]'>
-            <header className='text-center text-[3rem] font-bold'>&#128151; My Project &#128151;</header>
+            <header className='text-center text-[3rem] font-bold'>&#128151; My Projects &#128151;</header>
             <div className='relative h-[70vh] w-full overflow-x-hidden'>
                 {
                     dataProjects.map((data,i)=>(
