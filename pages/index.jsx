@@ -9,7 +9,7 @@ import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 
 const Home= () => {
-  const styleIconMenu = "cursor-pointer z-[99] text-white text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out"
+  const styleIconMenu = "cursor-pointer z-[99] text-white text-[2rem] md:text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out"
   const [showSidebar, setShowSidebar] = useState(false)
   const [activeId, setActiveId] = useState("")
   

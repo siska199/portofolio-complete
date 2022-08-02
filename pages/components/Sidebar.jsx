@@ -10,11 +10,11 @@ const Sidebar = ({showSidebar, setActiveId, activeId,}) => {
     }
   return (
     <section className={`${showSidebar?"translate-x-0 ":"-translate-x-full"} fixed z-[99] top-0 left-0  w-full bg-black/50  transition-all  duration-1000 ease-in-out`}>
-        <div className={` bg-gray-800 flex flex-col min-h-screen w-[20rem] z-[55] `}>
-            <ul className=' mt-[5rem] text-white font-thin text-[1.5rem]'>
+        <div className={` bg-gray-800 flex flex-col min-h-screen w-[90%] sm:w-[20rem] z-[55] `}>
+            <ul className=' mt-[5rem] text-white font-thin text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]'>
                 {
                     menu.map((data,i)=>(
-                        <li key={i} onClick={()=>handleActiveLink(data.id)} className={`${activeId==data.id&&"bg-white/10 "} transition-all duration-500 ease-in-out cursor-pointer pl-[2rem] py-3 hover:bg-white/10 hover:underline hover:underline-offset-1`} key={i}>{data.name}</li>
+                        <li key={i} onClick={()=>handleActiveLink(data.id)} className={`${activeId==data.id&&"bg-white/10 "} transition-all duration-500 ease-in-out cursor-pointer pl-[2rem] py-3 hover:bg-white/10 hover:underline hover:underline-offset-1`} >{data.name}</li>
                     ))
                 }
             </ul>

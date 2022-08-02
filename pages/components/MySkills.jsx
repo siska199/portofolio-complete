@@ -1,22 +1,21 @@
 import React from 'react'
-import {MdVerified} from 'react-icons/md'
 import Section from '../layouts/Section'
 import {forntendSkills, backendSkills} from "../../lib/data"
 import CardSkill from '../atoms/CardSkill'
 
 const MySkills = () => {
-    const styleCard = "w-1/2 flex flex-wrap py-3 px-5 bg-slate-700"
+    const styleCard = "w-3/4 md:w-1/2 flex flex-wrap p-1 md:py-3 md:px-5 bg-slate-700 "
   return (
     <Section id="my-skills">
-        <div className='flex flex-col w-3/4 gap-[3rem] justify-center'>
-            <header className='text-center text-[3rem] font-bold'>My Skills </header>
-            <div className='flex gap-[3rem] justify-center'>
+        <div className=' flex flex-col md:w-3/4 gap-[3rem] justify-center px-3 md-px-0'>
+            <header className='text-center text-[2rem] md:text-[3rem] font-bold'>My Skills </header>
+            <div className='flex flex-wrap md:flex-nowrap gap-[3rem] md:gap-[3rem] justify-center '>
                 <section className={styleCard}>
-                    {
-                        forntendSkills.map((data,i)=>(
-                            <CardSkill data={data} key={i}/>
-                        ))
-                    }
+                        {
+                            forntendSkills.map((data,i)=>(
+                                <CardSkill data={data} key={i}/>
+                            ))
+                        }
                 </section>
                 <section className={styleCard}>
                 {
