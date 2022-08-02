@@ -9,7 +9,7 @@ const Page = ({children, title, type, showSidebar}) => {
       customeStyle = ""
       break;
     case "homepage":
-      customeStyle = ''
+      customeStyle = `${showSidebar&&""}`
       break;
     case "profile":
       customeStyle = ""

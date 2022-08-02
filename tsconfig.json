@@ -15,6 +15,6 @@
     "jsx": "preserve",
     "incremental": true
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/layouts/Page.jsx", "pages/components/Homepage/index.jsx", "pages/components/Auth/index.jsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "pages/layouts/Page.jsx", "pages/components/Homepage/index.jsx", "pages/components/Auth/index.jsx", "pages/index.jsx", "pages/_app.jsx", "pages/layouts/Section.jsx", "pages/api/hello.js", "pages/components/Sidebar.jsx", "pages/components/MySkills.jsx", "pages/components/MyProjects.jsx", "pages/components/Introduction.jsx", "pages/components/AboutMe.jsx", "pages/atoms/Project.jsx", "pages/atoms/CardSkill.jsx", "lib/data.js", "lib/dbConnect.js", "schema/projects.js", "schema/stacks.js", "schema/user.js", "lib/dbConnect.js"],
   "exclude": ["node_modules"]
 }

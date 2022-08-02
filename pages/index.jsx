@@ -1,8 +1,5 @@
-import type { NextPage } from 'next'
 import {AiOutlineClose} from "react-icons/ai"
 import {FiMenu} from "react-icons/fi"
-import Head from 'next/head'
-import Image from 'next/image'
 import Page from './layouts/Page'
 import Introduction from './components/Introduction'
 import AboutMe from './components/AboutMe'
@@ -11,13 +8,18 @@ import MyProjects from './components/MyProjects'
 import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 
-const Home: NextPage = () => {
+const Home= () => {
   const styleIconMenu = "cursor-pointer z-[99] text-white text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out"
   const [showSidebar, setShowSidebar] = useState(false)
   const [activeId, setActiveId] = useState("")
   
   const handleShowSidebar = ()=>{
-    setShowSidebar(!showSidebar)
+    setShowSidebar(prev=>{
+      const html = document.querySelector('html')
+      console.log("prev: ", prev)
+      prev?html.classList.remove("overflow-y-hidden"):html.classList.add("overflow-y-hidden")
+      return !prev
+    })
   }
 
   useEffect(()=>{
@@ -46,8 +48,8 @@ const Home: NextPage = () => {
   }
   return (
       <Page title={"Portofolio"} type={"homepage"} showSidebar={showSidebar}>
+        <Sidebar activeId={activeId} setActiveId={setActiveId} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
         <div className='cotainer-articles'>
-          <Sidebar activeId={activeId} setActiveId={setActiveId} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
           {
             showSidebar?(
               <AiOutlineClose onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
@@ -55,7 +57,6 @@ const Home: NextPage = () => {
               <FiMenu onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
             )
           }
-          
           <Introduction/>
           <AboutMe/>
           <MySkills/>
