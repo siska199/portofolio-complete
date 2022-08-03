@@ -5,6 +5,7 @@ import Introduction from './components/Introduction'
 import AboutMe from './components/AboutMe'
 import MySkills from './components/MySkills'
 import MyProjects from './components/MyProjects'
+import Auth from "./components/Auth"
 import { useEffect, useState } from 'react'
 import Sidebar from './components/Sidebar'
 
@@ -62,6 +63,7 @@ const Home= () => {
           <MySkills/>
           <MyProjects/>
         </div>
+        <Auth/>
       </Page>
   )
 }
