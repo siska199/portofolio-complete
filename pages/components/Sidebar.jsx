@@ -13,11 +13,11 @@ const Sidebar = ({showSidebar, setActiveId, activeId,}) => {
     }
   return (
     <Modal showModal={showSidebar} type="sidebar">
-        <div className={` bg-gray-800 flex flex-col min-h-screen w-[90%] sm:w-[20rem] z-[55] `}>
+        <div className={` bg-gray-800 scroll-behavior flex flex-col min-h-screen w-[90%] sm:w-[20rem] z-[55] `}>
             <ul className=' mt-[5rem] text-white font-thin text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]'>
                 {
                     menu.map((data,i)=>(
-                        <li key={i} onClick={()=>handleActiveLink(data.id)} className={`${activeId==data.id&&"bg-white/10 "} transition-all duration-500 ease-in-out cursor-pointer pl-[2rem] py-3 hover:bg-white/10 hover:underline hover:underline-offset-1`} >{data.name}</li>
+                        <li key={i} onClick={()=>handleActiveLink(data.id)} className={`${activeId==data.id&&"bg-white/10 "} transition-all duration-500 ease-in-out cursor-pointer pl-[2rem] py-3  hover:underline hover:underline-offset-1`} >{data.name}</li>
                     ))
                 }
                 <li className='px-[2rem] py-3 flex gap-3'>

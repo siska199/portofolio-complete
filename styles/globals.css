@@ -1,6 +1,6 @@
-html{
+/* html{
     scroll-behavior: smooth;
-}
+} */
 
 
 @tailwind base;
@@ -42,6 +42,9 @@ html{
 }
 
 @layer utilities{
+    .scroll-behavior{
+        scroll-behavior: smooth !important;
+    }
     .accordion-content {
         max-height: 500px;
         padding: 1rem;

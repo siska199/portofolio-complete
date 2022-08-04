@@ -21,7 +21,6 @@ const Home= () => {
   const handleShowSidebar = ()=>{
     setShowSidebar(prev=>{
       const html = document.querySelector('html')
-      console.log("prev: ", prev)
       prev?html.classList.remove("overflow-y-hidden"):html.classList.add("overflow-y-hidden")
       return !prev
     })
@@ -48,13 +47,13 @@ const Home= () => {
     })
   }
   const options = {
-    threshold: 0.6,
+    threshold: 1.0,
     
   }
   return (
       <Page title={"Portofolio"} type={"homepage"} showSidebar={showSidebar}>
         <Sidebar activeId={activeId} setActiveId={setActiveId} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
-        <div className='cotainer-articles'>
+        <div className='cotainer-articles scroll-behavior'>
           <div>
             {
               showSidebar?(

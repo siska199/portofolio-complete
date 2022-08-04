@@ -3,8 +3,8 @@ import Section from "../layouts/Section"
 
 const Footer = () => {
   return (
-      <Section>
-        <div className='bg-black w-full py-2 text-center font-thin'>
+      <Section id="footer">
+        <footer className='bg-black w-full py-2 text-center font-thin'>
           <p>
           © Siska Apriana Rifianti
           </p>
@@ -22,7 +22,7 @@ const Footer = () => {
               "yok bisa yok"
             </p>
           </div>
-        </div>
+        </footer>
       </Section>
 
   )
