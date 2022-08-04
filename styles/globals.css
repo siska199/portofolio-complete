@@ -16,12 +16,19 @@ html{
         overflow-x : hidden;
         max-width : 100vw;
         min-height : 100vh;
+        background-color : #111827;
     }
 }
 
+
+
 @layer components{
+
     .container{
-        @apply max-w-[1500px] mx-auto min-h-screen bg-slate-900
+        @apply max-w-[1500px] mx-auto min-h-screen bg-gray-900 relative
+    }
+    .header-section-menu{
+        @apply text-center text-[2rem] md:text-[3rem] font-bold
     }
     .scrollbar-hidden::-webkit-scrollbar {
         display: none;
@@ -35,6 +42,13 @@ html{
 }
 
 @layer utilities{
+    .accordion-content {
+        max-height: 500px;
+        padding: 1rem;
+        transition: max-height 0.5s ease-in-out, padding 0.5s ease-in-out;
+        overflow-y : scroll;
+    }
+
     .grad-text{
         background-image: linear-gradient( 358.4deg,  rgba(249,151,119,1) -2.1%, rgba(98,58,162,1) 90% );        
         -webkit-background-clip : text;

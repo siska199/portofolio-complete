@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Modal from "../layouts/Modal"
-import Input from "./Input"
+import Input from "../atoms/Input"
 
 const Auth = () => {
   const [typeAuth, setTypeAuth] = useState("login")

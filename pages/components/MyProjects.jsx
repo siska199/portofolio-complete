@@ -24,9 +24,9 @@ const MyProjects = () => {
                 </button>
             )
         }
-        <div className='flex flex-col w-full gap-[3rem] md:gap-[5rem] md:px-[5rem] '>
-            <header className='text-center text-[2rem] md:text-[3rem] font-bold'>&#128151; My Projects &#128151;</header>
-            <div className='relative  min-h-screen lg:min-h-[70vh] scrollbar-hidden  w-full overflow-x-hidden'>
+        <div className='flex flex-col w-full gap-[3rem]  md:px-[5rem] '>
+            <header className='header-section-menu'>My Projects &#128187;</header>
+            <div className=' relative min-h-screen lg:min-h-[70vh] scrollbar-hidden  w-full overflow-x-hidden'>
                 {
                     dataProjects.map((data,i)=>(
                         <Project key={i} data={data} active={i==indexData?true:false} prevElement={i<indexData?true:false}  />

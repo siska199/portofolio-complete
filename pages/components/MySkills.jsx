@@ -8,7 +8,7 @@ const MySkills = () => {
   return (
     <Section id="my-skills">
         <div className=' flex flex-col md:w-3/4 gap-[3rem] justify-center px-3 md-px-0'>
-            <header className='text-center text-[2rem] md:text-[3rem] font-bold'>My Skills </header>
+            <header className='header-section-menu'>My Skills 💸</header>
             <div className='flex flex-wrap md:flex-nowrap gap-[3rem] md:gap-[3rem] justify-center '>
                 <section className={styleCard}>
                         {

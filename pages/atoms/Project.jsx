@@ -1,5 +1,7 @@
 import React from 'react'
 import Link from 'next/link'
+import {BsSuitHeart} from "react-icons/bs"
+import {GoComment} from "react-icons/go"
 
 const Project = ({data, active, prevElement}) => {
 
@@ -40,6 +42,16 @@ const Project = ({data, active, prevElement}) => {
               </div>
             ))
           }
+        </div>
+        <div className='flex gap-4 text-[1.5rem]'>
+          <div className='font-thin flex flex-col  justify-center items-center'>
+            <span className='cursor-pointer  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400   rounded-full p-2'><BsSuitHeart /></span>
+            <span className='text-sm font-bold text-gray-500'>1</span>
+          </div>
+          <div className='font-thin flex flex-col  justify-center items-center'>
+            <span className='cursor-pointer  bg-green-600 hover:bg-transparent hover:border-[0.005rem] border-green-400   rounded-full p-2'><GoComment/></span>
+            <span className='text-sm font-bold text-gray-500'>1</span>
+          </div>
         </div>
       </div>
     </div>

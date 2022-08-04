@@ -12,7 +12,7 @@ const AboutMe = () => {
                 <img src="me.png" className='object-contain m-auto w-[10rem] h-[10rem] md:w-[15rem] md:h-[15rem] lg:w-[20rem] lg:h-[25rem]' alt="" />
             </div>
             <div className='w-full md:w-1/2 flex flex-col gap-4'>
-                <h1 className='text-center text-[2rem] md:text-[3rem] font-bold'>About Me </h1>
+                <h1 className='header-section-menu'>About Me 🧕</h1>
                 <p className='text-justify text-[0.9rem] md:text-[1.1rem] lg:text-[1.2rem] font-thin leading-[1rem] md:leading-[1.5rem] lg:leading-[1.7rem]'>
                     I love to build the frontend of website using <span className={styleMarkStack}>react JS</span> 
                     more specifically using <span className={styleMarkStack}>Next JS</span> as the frontend framework 
