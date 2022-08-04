@@ -1,10 +1,8 @@
 import React from 'react'
-import Section from "../layouts/Section"
 
 const Footer = () => {
   return (
-      <Section id="footer">
-        <footer className='bg-black w-full py-2 text-center font-thin'>
+        <footer className='bg-black w-full py-2 text-center font-thin text-white'>
           <p>
           © Siska Apriana Rifianti
           </p>
@@ -23,8 +21,6 @@ const Footer = () => {
             </p>
           </div>
         </footer>
-      </Section>
-
   )
 }
 

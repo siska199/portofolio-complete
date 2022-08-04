@@ -42,12 +42,11 @@ const Home= () => {
 
   const handleIntersection = (entries)=>{
     entries.forEach(entry=>{
-      console.log("test: ", entry.target.id)
       entry.isIntersecting && setActiveId(`#${entry.target.id}`)
     })
   }
   const options = {
-    threshold: 1.0,
+    threshold: 0.7,
     
   }
   return (
@@ -62,7 +61,7 @@ const Home= () => {
                 <FiMenu onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
               )
             }
-            <GiButterfly className='fixed text-white right-3 top-3 text-[2.5rem] md:text-[4rem]'/>
+            <GiButterfly className='fixed z-[99] text-white right-3 top-3 text-[2.5rem] md:text-[4rem]'/>
           </div>
           <Introduction/>
           <AboutMe/>
