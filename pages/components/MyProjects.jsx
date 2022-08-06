@@ -1,10 +1,13 @@
 import React, { useState } from 'react'
+import { useSelector } from 'react-redux'
 import {CgPlayTrackPrev,CgPlayTrackNext} from "react-icons/cg"
 import Section from '../layouts/Section'
-import {projectSkills as dataProjects} from "../../lib/data"
+import Comments from "../components/Comments"
 import Project from '../atoms/Project'
+import {projectSkills as dataProjects} from "../../lib/data"
 
 const MyProjects = () => {
+    const modalComment = useSelector(state=>state.project.value.modalComment)
     const styleButtonSlider = "absolute top-[30%] md:top-[50%] text-[2.2rem] md:text-[3rem] !text-white z-[10]"
     const [indexData, setIndexData] = useState(0)
     
@@ -38,6 +41,11 @@ const MyProjects = () => {
                 <button onClick={()=>handleNextButton()} className={`${styleButtonSlider} right-0`}>
                     <CgPlayTrackNext color="white"/>
                 </button>
+            )
+        }
+        {
+            modalComment && (
+                <Comments/>
             )
         }
     </Section>

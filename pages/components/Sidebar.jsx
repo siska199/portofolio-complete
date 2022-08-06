@@ -20,12 +20,12 @@ const Sidebar = ({showSidebar, setActiveId, activeId,}) => {
         dispatch(handleModalAuth(type))
         setTimeout(()=>{
             dispatch(handleModalMenu(false))
-        },1000)
+        },100)
     }
     
   return (
     <Modal showModal={modalMenu} type="sidebar">
-        <div className={` bg-cl800 dark:bg-cd800 scroll-behavior flex flex-col min-h-screen w-[90%] sm:w-[20rem] z-[55] `}>
+        <div onClick={(e)=>e.stopPropagation()} className={` bg-cl800 dark:bg-cd800 scroll-behavior flex flex-col min-h-screen w-[90%] sm:w-[20rem] z-[55] `}>
             <ul className=' mt-[5rem] text-white font-thin text-[1.1rem] md:text-[1.2rem] lg:text-[1.3rem]'>
                 {
                     menu.map((data,i)=>(
