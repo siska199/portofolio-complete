@@ -4,7 +4,8 @@ import {forntendSkills, backendSkills} from "../../lib/data"
 import CardSkill from '../atoms/CardSkill'
 
 const MySkills = () => {
-    const styleCard = "w-3/4 md:w-1/2 flex flex-wrap p-1 md:py-3 md:px-5 bg-slate-700 "
+
+    const styleCard = `w-3/4 md:w-1/2 flex flex-wrap p-3 md:py-3 md:px-5 bg-clCard dark:bg-cdCard`
   return (
     <Section id="my-skills">
         <div className=' flex flex-col md:w-3/4 gap-[3rem] justify-center px-3 md-px-0'>

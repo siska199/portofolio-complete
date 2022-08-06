@@ -1,16 +1,15 @@
 import React, { useState } from 'react'
 import {CgPlayTrackPrev,CgPlayTrackNext} from "react-icons/cg"
-import {ImNext2} from "react-icons/im"
 import Section from '../layouts/Section'
 import {projectSkills as dataProjects} from "../../lib/data"
 import Project from '../atoms/Project'
 
 const MyProjects = () => {
-    const styleButtonSlider = "absolute top-[30%] md:top-[50%] text-[2.5rem] md:text-[3rem] !text-white z-[10]"
+    const styleButtonSlider = "absolute top-[30%] md:top-[50%] text-[2.2rem] md:text-[3rem] !text-white z-[10]"
     const [indexData, setIndexData] = useState(0)
+    
     const handlePrevButton = ()=>{
         setIndexData(prev=>(prev-1))
-
     }
     const handleNextButton = ()=>{
         setIndexData(prev=>(prev+1))

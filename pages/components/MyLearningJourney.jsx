@@ -17,12 +17,12 @@ const MyLearningJourney = () => {
             <div className='px-3 flex w-full overflow-x-scroll gap-4 scrollbar-hidden'>
               {
                 learningJourneys.map((data,i)=>(
-                  <CardLearning data={data}/>
+                    <CardLearning key={i} data={data}/>
                 ))
               }            
             </div>
             <Link href="https://www.linkedin.com/in/siska-apriana-rifianti/">
-              <a target="_blank" className='border-gray-600 mx-auto my-5 gap-3 text-sm md:text-base hover:border-[0.005rem] px-3 py-1 font-bold flex items-center'><AiFillLinkedin className='text-[1.3rem]'/> View my linkind</a>
+              <a target="_blank" className='border-cl600 dark:border-cd600 hover:border-none hover:bg-cl700 hover:dark:bg-cd700 mx-auto my-5 gap-3 text-sm md:text-base border-[0.005rem] px-3 py-1 font-bold flex items-center'><AiFillLinkedin className='text-[1.3rem]'/> View my linkind</a>
             </Link>
           </div>
       </div>

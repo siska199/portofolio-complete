@@ -13,7 +13,7 @@ const Section = ({ children, id }) => {
       customeStyle = "min-h-screen py-[3rem]";
       break;
     case "my-projects":
-      customeStyle = "min-h-screen py-[3rem] mb:pt-0";
+      customeStyle = " py-[3rem] mb:pt-0";
       break;
     case "my-learning-journey":
       customeStyle = "min-h-screen py-[3rem] mb:pt-0";
@@ -28,7 +28,7 @@ const Section = ({ children, id }) => {
   return (
     <article
       id={id}
-      className={`relative ${customeStyle} border-b-[0.005rem] border-gray-800 text-slate-200  border-pink flex items-center justify-center gap-5`}
+      className={`relative ${customeStyle} border-b-[0.005rem] border-cl800 dark:border-cd800 text-cl100 dark:text-cd100 flex items-center justify-center gap-5`}
     >
       {children}
     </article>

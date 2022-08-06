@@ -12,21 +12,30 @@ import FAQs from "./components/FAQs"
 import Sidebar from './components/Sidebar'
 import Auth from "./components/Auth"
 import Footer from "./components/Footer"
+import Tooltip from "./atoms/Tooltip"
+import { useDispatch, useSelector } from 'react-redux'
+import { handleModalMenu } from '../redux/features/menuSlice'
 
 const Home= () => {
+  const dispatch = useDispatch()
+  const modalAuth = useSelector(state=>state.auth.value.modal)
+  const modalMenu = useSelector(state=>state.menu.value.modal)
+
   const styleIconMenu = "cursor-pointer z-[99] text-white text-[2rem] md:text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out"
-  const [showSidebar, setShowSidebar] = useState(false)
   const [activeId, setActiveId] = useState("")
   
+  let html
+  if(typeof window !== 'undefined'){
+    html = document.querySelector('html')
+  }
+
   const handleShowSidebar = ()=>{
-    setShowSidebar(prev=>{
-      const html = document.querySelector('html')
-      prev?html.classList.remove("overflow-y-hidden"):html.classList.add("overflow-y-hidden")
-      return !prev
-    })
+    modalMenu?html.classList.remove("overflow-y-hidden"):html.classList.add("overflow-y-hidden")
+    dispatch(handleModalMenu(modalMenu?false:true))
   }
 
   useEffect(()=>{
+    html.classList.add("dark")
     const articles = document.querySelectorAll("article")
     const observer = new IntersectionObserver(handleIntersection,options)
     articles.forEach(article=>{
@@ -39,7 +48,9 @@ const Home= () => {
     }
 
   },[])
-
+  const handleChangeTheme = ()=>{
+    html.classList.toggle("dark")
+  }
   const handleIntersection = (entries)=>{
     entries.forEach(entry=>{
       entry.isIntersecting && setActiveId(`#${entry.target.id}`)
@@ -50,18 +61,21 @@ const Home= () => {
     
   }
   return (
-      <Page title={"Portofolio"} type={"homepage"} showSidebar={showSidebar}>
-        <Sidebar activeId={activeId} setActiveId={setActiveId} setShowSidebar={setShowSidebar} showSidebar={showSidebar} />
+      <Page title={"Portofolio"} type={"homepage"}>
+        <Sidebar activeId={activeId} setActiveId={setActiveId}/>
         <div className='cotainer-articles scroll-behavior'>
           <div>
             {
-              showSidebar?(
+              modalMenu?(
                 <AiOutlineClose onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
               ):(
                 <FiMenu onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
               )
             }
-            <GiButterfly className='fixed z-[99] text-white right-3 top-3 text-[2.5rem] md:text-[4rem]'/>
+            <div className='fixed z-[999] right-3 top-3 cursor-pointer group'>
+              <GiButterfly onClick={()=>handleChangeTheme()} className=' text-white text-[2.5rem] md:text-[4rem]'/>
+              <Tooltip message={"Change color theme"}/>
+            </div>
           </div>
           <Introduction/>
           <AboutMe/>
@@ -71,7 +85,11 @@ const Home= () => {
           <FAQs/>
           <Footer/>
         </div>
-        <Auth/>
+
+        {
+          modalAuth && <Auth/>
+        }
+      
       </Page>
   )
 }

@@ -1,10 +1,14 @@
 import React from 'react'
 import Link from 'next/link'
 import Section from '../layouts/Section'
+import { useSelector } from 'react-redux'
 
 const AboutMe = () => {
-    const styleMarkStack = "bg-slate-500 px-2 text-[0.7rem] md:text-sm font-bold mx-1"
-    const styleButton = "p-1 md:p-2 text-[0.8rem] md:text-[1rem] border-[0.005rem] border-slate-600 hover:bg-slate-600"
+    const main = useSelector(state=>state.theme.value.main)
+
+    const styleMarkStack = `bg-cl800 dark:bg-cd800 px-2 text-[0.7rem] md:text-sm font-bold mx-1`
+    const styleButton = `p-1 md:p-2 text-[0.8rem] md:text-[1rem] border-[0.005rem] border-cl800 dark:border-cd800 hover:bg-cl700 hover:dark:bg-cd700`
+    
   return (
     <Section id="about-me">
         <div className='flex flex-col md:flex-row px-5 sm:w-3/4 justify-center items-center'>

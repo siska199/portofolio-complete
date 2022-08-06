@@ -10,13 +10,13 @@ const FAQ = ({data}) => {
   }
   return (
     <section className=''>
-        <div  onClick={()=>handleExpand()} className='cursor-pointer flex items-center gap-2 border-[0.05rem] text-lg border-gray-800 p-2'>
+        <div  onClick={()=>handleExpand()} className='cursor-pointer flex items-center gap-2 border-[0.05rem] text-lg border-cl800 dark:border-cd800  p-2'>
           {
             expand?<AiFillMinusCircle className={styleIcon}/>:<BsFillPlusCircleFill className={styleIcon} />
           }
           <p className='font-bold'>{data.question}</p>
         </div>
-        <ul className={`max-h-0 ${expand&&"accordion-content"}  scrollbar-hidden  transition-all duration-500 ease-in-out overflow-hidden font-thin text-sm text-gray-400 border-l-[0.01rem] border-gray-800  `}>
+        <ul className={`max-h-0 ${expand&&"accordion-content"}  scrollbar-hidden  transition-all duration-500 ease-in-out overflow-hidden font-thin text-sm text-cl300 dark:text-cd300 border-l-[0.01rem] border-cl800 dark:border-cd800  `}>
           {
             data.answears.map((data,i)=>(
               <li key={i}>- {data}</li>

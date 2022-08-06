@@ -3,18 +3,20 @@ import { createSlice } from "@reduxjs/toolkit"
 
 const initialState = {
     value : {
-        activeMenuId : "#introduction"
+        modal : false
     }
 }
 const menuSlice = createSlice({
     name: "menu",
     initialState,
     reducers : {
-        handleChangeMenu : (state,action)=>{
-
-        }
+        handleModalMenu : (state,action)=>{
+            console.log("change State")
+            state.value.modal = action.payload
+        },
+        
     }
 })
 
-export const {handleChangeMenu} = menuSlice.actions
+export const { handleModalMenu } = menuSlice.actions
 export default menuSlice.reducer
