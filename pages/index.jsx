@@ -72,7 +72,7 @@ const Home= () => {
                 <FiMenu onClick={()=>handleShowSidebar()} className={styleIconMenu}/>
               )
             }
-            <div className='fixed z-[999] right-3 top-3 cursor-pointer group'>
+            <div className='fixed z-[99] right-3 top-3 cursor-pointer group'>
               <GiButterfly onClick={()=>handleChangeTheme()} className=' text-white text-[2.5rem] md:text-[4rem]'/>
               <Tooltip message={"Change color theme"}/>
             </div>
