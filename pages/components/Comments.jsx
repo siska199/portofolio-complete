@@ -24,7 +24,7 @@ const Comments = () => {
       >
         <div
           onClick={() => handleCloseComments()}
-          className="absolute -top-3 -right-3 cursor-pointer text-[1.5rem] bg-cl500 dark:bg-cd500 rounded-full p-1"
+          className="absolute -top-3 -right-3 cursor-pointer text-[1.5rem] bg-cl700 dark:bg-cd700 rounded-full p-1"
         >
           <MdClose />
         </div>
