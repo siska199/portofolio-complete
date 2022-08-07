@@ -52,18 +52,23 @@ const Project = ({data, active, prevElement}) => {
           }
         </div>
         <div className='flex gap-4 text-[1.5rem]'>
-          <div className='font-thin border-2'>
-            <div className='cursor-pointer border-2 relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2'>
-              <span className=''><BsSuitHeart /></span>
-              <Tooltip type={"love"} message={"Love this project"}/>
+          <div className='font-thin  group relative '>
+            <div className='cursor-pointer flex flex-col relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2'>
+              <BsSuitHeart />
             </div>
             <p className='text-sm text-center font-bold '>1</p>
+            <Tooltip type={"love"} message={"Love this project"}/>
           </div>
-          <div className='font-thin flex flex-col  justify-center items-center'>
-            <span onClick={()=>handleComments()} className='cursor-pointer bg-green-600 hover:bg-transparent hover:border-[0.005rem] border-green-400   rounded-full p-2'><GoComment/></span>
-            <span className='text-sm font-bold '>1</span>
+
+          <div className='font-thin group relative '>
+            <div onClick={()=>handleComments()}  className='cursor-pointer bg-green-600 hover:bg-transparent hover:border-[0.005rem] border-green-400   rounded-full p-2'>
+              <GoComment/>
+            </div>
+            <p className='text-sm text-center font-bold '>1</p>
+            <Tooltip type={"love"} message={"Comment this project"}/>
           </div>
         </div>
+
       </div>
       
     </div>
