@@ -4,7 +4,7 @@ const Tooltip = ({message,type}) => {
     let customeStyle
     switch(type){
         case "love":
-            customeStyle="z-[9999] -ml-[1.7rem] w-[6rem]"
+            customeStyle="z-[9999] w-[6rem]"
             break;
     }
 
