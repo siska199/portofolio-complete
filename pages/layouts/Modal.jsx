@@ -12,7 +12,7 @@ const Modal = ({ showModal, children, type }) => {
     case "sidebar":
       customeStyle = `${
         showModal ? "translate-x-0 " : "-translate-x-full"
-      } bg-black/50 `;
+      } bg-black/90 `;
       break;
     case "auth":
       customeStyle = `${

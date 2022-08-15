@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useRef } from "react";
+import { motion } from "framer-motion";
 
 const Section = ({ children, id }) => {
+  const scrollRef = useRef(null)
   let customeStyle;
   switch (id) {
     case "introduction":
@@ -26,12 +28,17 @@ const Section = ({ children, id }) => {
   }
 
   return (
-    <article
-      id={id}
-      className={`relative ${customeStyle} border-b-[0.005rem] border-cl800 dark:border-cd800 text-cl100 dark:text-cd100 flex items-center justify-center gap-5`}
-    >
-      {children}
-    </article>
+    <div ref={scrollRef}>
+      <motion.article
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        id={id}
+        className={`relative ${customeStyle} border-b-[0.005rem] border-cl800 dark:border-cd800 text-cl100 dark:text-cd100 flex items-center justify-center gap-5`}
+      >
+
+        {children}
+      </motion.article>
+    </div>
   );
 };
 

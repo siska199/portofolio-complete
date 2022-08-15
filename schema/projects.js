@@ -26,7 +26,6 @@ const ProjectShema = new Schema({
     ],
     aboutApp : {
         type :String,
-        required : true,
         required : [true, 'Please fill about app of the project']
     },
     linkGithub : {
@@ -35,7 +34,6 @@ const ProjectShema = new Schema({
     },
     linkApp : {
         type : String,
-        required : true,
         required : [true, 'Please fill link app of the project']
     }
 },{
