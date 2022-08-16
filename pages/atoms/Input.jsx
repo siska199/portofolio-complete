@@ -3,7 +3,7 @@ import {AiOutlineEye, AiOutlineEyeInvisible,} from "react-icons/ai"
 
 const Input = (props) => {
   const [invalid, setInvalid] = useState(false);
-  const [hidePass, setHidePass] = useState(false)
+  const [hidePass, setHidePass] = useState(true)
   const { error, pattern,type, name, value } = props;
 
   const handleValidate = (e) => {
@@ -15,7 +15,7 @@ const Input = (props) => {
 
   return (
     <div>
-      <div className="container-input flex relative group flex-col border-[0.005rem] border-cl700 dark:border-cd700 px-3 p-2 ">
+      <div className="container-input flex relative group flex-col border-[0.005rem] border-cl700 dark:border-cd800 px-3 p-2 ">
         <input
           type={name=="password"?hidePass?type:"text":type}
           name={name}
@@ -31,7 +31,7 @@ const Input = (props) => {
         </label>
         {
           name =="password" &&(
-            <div className="absolute right-0 mx-2 cursor-pointer text-[1.1rem] z-20 bottom-[0.7rem]" onClick={()=>setHidePass(!hidePass)}>
+            <div className="absolute block peer-placeholder-shown:hidden peer-focus:block right-0 mx-2 cursor-pointer text-[1.1rem] z-20 bottom-[0.7rem]" onClick={()=>setHidePass(!hidePass)}>
               {
                 hidePass?<AiOutlineEyeInvisible/> : <AiOutlineEye className=""/> 
               }

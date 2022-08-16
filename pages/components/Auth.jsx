@@ -69,7 +69,7 @@ const Auth = () => {
 
         <div>
           <button
-            className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 disabled:cursor-not-allowed`}
+            className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 disabled:cursor-default`}
             disabled={type=="login"?disabledButtonLogin:disabledButtonRegister}
             onClick={()=>handleOnSubmit()}
           >
