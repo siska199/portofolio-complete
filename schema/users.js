@@ -10,7 +10,8 @@ const UserShema = new Schema({
         type :String,
         required : [true, "Plaese fill a username"],
         trim : true,
-        unique : [true, 'This username has been taken'],
+        unique : [true, 'This username should be unique'],
+        minLength : [3, 'username length cannot be less than 10 character'],
         maxLength : [10, 'username length cannot be more than 10 character'],
      },
      email :{
@@ -42,12 +43,12 @@ const UserShema = new Schema({
 
 /*Validation section*/
 UserShema.path("email").validate((email)=>{
-   const emailRegex = new RegExp("/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/");
+   const emailRegex = new RegExp("^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$");
    return emailRegex.test(email);
-},'Please fill an correct email address')
+},'Please fill an correct email address')``
 
 UserShema.path("password").validate((email)=>{
-   const passwordRegex = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,20})");
+   const passwordRegex = new RegExp("^(?=.*[a-z])(?!.* )(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})");
    return passwordRegex.test(password)
 },`Password at least have :
    one numeric character,

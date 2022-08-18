@@ -51,7 +51,7 @@ const Project = ({data, active, prevElement}) => {
             ))
           }
         </div>
-        <div className='flex gap-4 text-[1.5rem]'>
+        {/* <div className='flex gap-4 text-[1.5rem]'>
 
           <div className='font-thin  group relative '>
             <div className='cursor-pointer flex flex-col relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2'>
@@ -68,7 +68,7 @@ const Project = ({data, active, prevElement}) => {
             <p className='text-sm text-center font-bold '>1</p>
             <Tooltip type={"love"} message={"Comment this project"}/>
           </div>
-        </div>
+        </div> */}
 
       </div>
       

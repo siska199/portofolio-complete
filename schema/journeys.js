@@ -1,4 +1,4 @@
-import { model, Schema } from "mongoose";
+import { model,models, Schema } from "mongoose";
 
 const JourneySchema = new Schema(
   {
@@ -21,4 +21,4 @@ const JourneySchema = new Schema(
   }
 );
 
-export default model.journeys || model("journeys", JourneySchema);
+export default models.journeys || model("journeys", JourneySchema);

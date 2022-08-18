@@ -37,7 +37,6 @@ StackSchema.pre("save", function(next){
   if (!this.isModified('type')) return next();
 
   const name = this.type.name.toLowerCase();
-  console.log("name of type", name);
 
   switch (name) {
     case "framework fullstack":
