@@ -44,7 +44,7 @@ const Project = ({data, active, prevElement}) => {
         </div>
         <div className='text-[0.7rem] md:text-base'>
           {
-            data?.stacks?.map((data,i)=>(
+            data.stacks && data?.stacks.map((data,i)=>(
               <div key={i}>
                 ☑ {data?.name}
               </div>
