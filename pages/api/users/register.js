@@ -11,16 +11,18 @@ export default async function (req, res) {
 
     const userEmailExist = await users.findOne({ email: body.email });
     if (userEmailExist)
-      return res.status(500).send("This email has been registered");
+      return res.status(400).send("This email has been registered");
 
     const userUsernameExist = await users.findOne({ username: body.username });
     if (userUsernameExist)
-      return res.status(500).send("This username has been taken by other user");
+      return res.status(400).send("This username has been taken by other user");
 
     try {
       const addUser = await users.create({
         ...body,
-        image : body.image?body.image: "https://static.wikia.nocookie.net/itstabletoptime/images/b/b5/Default.jpg/revision/latest?cb=20210606184459"
+        image: body.image
+          ? body.image
+          : "https://static.wikia.nocookie.net/itstabletoptime/images/b/b5/Default.jpg/revision/latest?cb=20210606184459",
       });
       const token = generateToken({ _id: addUser._id, role: addUser.role });
       res.status(201).json({
@@ -33,7 +35,7 @@ export default async function (req, res) {
         token,
       });
     } catch (error) {
-      res.status(500).send(error);
+      res.status(500).json(error);
     }
   }
 }

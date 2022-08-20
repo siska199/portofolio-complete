@@ -1,8 +1,9 @@
 import dbConnect from "../../../lib/dbConnect";
-import { UppercaseEachLetter } from "../../../lib/function";
 import stacks from "../../../schema/stacks";
+import { UppercaseEachLetter, infoToken } from "../../../lib/function";
 
 export default async function (req, res) {
+  const userToken = infoToken(req, res);
   await dbConnect();
 
   const { method } = req;
@@ -21,25 +22,30 @@ export default async function (req, res) {
 
   if (method == "POST") {
     try {
+      if (!userToken || userToken.role == "visitor")
+        return res
+          .status(401)
+          .send("This user dont have authorization to add stack data");
+
       const { body } = req;
       const data = {
         ...body,
-        name : UppercaseEachLetter(body.name),
-        type :{
-          name :  UppercaseEachLetter(body.type.name)
-        }
-      }
+        name: UppercaseEachLetter(body.name),
+        type: {
+          name: UppercaseEachLetter(body.type.name),
+        },
+      };
       const createStack = await stacks.create(data);
       res.status(201).json(createStack);
     } catch (error) {
-      console.log(error)
-      let msgError = error.errors? [] :""
-      if(error.errors){
-          Object.keys(error.errors).forEach((key) => {
-              msgError.push(error.errors[key].message);
-      });
-      }else{
-          msgError = error
+      console.log(error);
+      let msgError = error.errors ? [] : "";
+      if (error.errors) {
+        Object.keys(error.errors).forEach((key) => {
+          msgError.push(error.errors[key].message);
+        });
+      } else {
+        msgError = error;
       }
       res.status(500).json(msgError);
     }

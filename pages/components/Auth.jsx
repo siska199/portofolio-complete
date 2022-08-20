@@ -3,24 +3,32 @@ import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../layouts/Modal";
 import Input from "../atoms/Input";
-import { handleModalAuth } from "../../redux/features/authSlice";
+import {
+  handleModalAuth,
+  handleRegister,
+} from "../../redux/features/authSlice";
 import { dataFormAuth } from "../../lib/validateFormAuth";
 
 const Auth = () => {
   const dispatch = useDispatch();
-  const [form, setForm] = useState({
-    username:"",
-    email:"",
-    password:""
-  })
+  const initialForm ={
+    username: "",
+    email: "",
+    password: "",
+  } 
+  const [form, setForm] = useState(initialForm);
+  const loadingAuth = useSelector((state) => state.auth.value.loadingAuth);
+  console.log("loading auth: ", loadingAuth);
   const modal = useSelector((state) => state.auth.value.modal);
   const type = useSelector((state) => state.auth.value.type);
   const [typeAuth, setTypeAuth] = useState(type);
-  const disabledButtonLogin = ((type=="login") && (form.email&&form.password))?false:true
-  console.log("button login: ", disabledButtonLogin)
-  const disabledButtonRegister = ((type=="register") && (form.username&&form.email&&form.password))?false:true
-  console.log("button register: ", disabledButtonRegister)
-
+  const disabledButtonLogin =
+    type == "login" && form.email && form.password ? false : true;
+  const disabledButtonRegister =
+    type == "register" && form.username && form.email && form.password
+      ? false
+      : true;
+  console.log("disabled button reg: ", disabledButtonRegister);
   const handleTypeAuth = () => {
     typeAuth == "login" ? setTypeAuth("register") : setTypeAuth("login");
   };
@@ -33,17 +41,19 @@ const Auth = () => {
     html.classList.remove("overflow-y-hidden");
   };
 
-  const handleOnChange = (e)=>{
+  const handleOnChange = (e) => {
     setForm({
       ...form,
-      [e.target.name] : e.target.value
-    })
-  }
+      [e.target.name]: e.target.value,
+    });
+  };
 
-  const handleOnSubmit = ()=>{
-    console.log("form: ", form)
-  }
-  
+  const handleOnSubmit = (e) => {
+    e.preventDefault();
+    dispatch(handleRegister(form)).then(()=>{
+      setForm(initialForm)
+    })
+  };
 
   return (
     <Modal showModal={modal} type="auth">
@@ -63,15 +73,22 @@ const Auth = () => {
         </h1>
 
         {dataFormAuth.map((data, i) => {
-          if (typeAuth == "login" && data.name == "username") return"";
-          return <Input key={i} {...data} handleOnChange={handleOnChange} />;
+          if (typeAuth == "login" && data.name == "username") return "";
+          return (
+            <Input
+              key={i}
+              {...data}
+              handleOnChange={handleOnChange}
+              value={form[data.name]}
+            />
+          );
         })}
 
         <div>
           <button
-            className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 disabled:cursor-default`}
-            disabled={type=="login"?disabledButtonLogin:disabledButtonRegister}
-            onClick={()=>handleOnSubmit()}
+            className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 cursor-pointer disabled:cursor-default`}
+            disabled={false}
+            onClick={(e) => handleOnSubmit(e)}
           >
             {typeAuth == "login" ? "Login" : "Register"}
           </button>

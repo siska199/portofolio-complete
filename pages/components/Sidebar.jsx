@@ -41,10 +41,10 @@ const Sidebar = ({ showSidebar, setActiveId, activeId }) => {
               {data.name}
             </li>
           ))}
-          {/* <li className='px-[2rem] py-3 flex gap-3'>
-                    <button onClick={()=>handleClickAuth("register")} className={styleButtonAuth}>Register</button>
-                    <button  onClick={()=>handleClickAuth("login")} className={styleButtonAuth}>Login</button>
-                </li> */}
+          <li className='px-[2rem] py-3 flex gap-3'>
+              <button onClick={()=>handleClickAuth("register")} className={styleButtonAuth}>Register</button>
+              <button  onClick={()=>handleClickAuth("login")} className={styleButtonAuth}>Login</button>
+          </li>
         </ul>
       </div>
     </Modal>

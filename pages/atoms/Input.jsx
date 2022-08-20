@@ -1,10 +1,10 @@
 import React, { useState } from "react";
-import {AiOutlineEye, AiOutlineEyeInvisible,} from "react-icons/ai"
+import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const Input = (props) => {
   const [invalid, setInvalid] = useState(false);
-  const [hidePass, setHidePass] = useState(true)
-  const { error, pattern,type, name, value } = props;
+  const [hidePass, setHidePass] = useState(true);
+  const { error, pattern, type, name, value, handleOnChange } = props;
 
   const handleValidate = (e) => {
     const value = e.target.value;
@@ -17,9 +17,11 @@ const Input = (props) => {
     <div>
       <div className="container-input flex relative group flex-col border-[0.005rem] border-cl700 dark:border-cd800 px-3 p-2 ">
         <input
-          type={name=="password"?hidePass?type:"text":type}
+          type={name == "password" ? (hidePass ? type : "text") : type}
           name={name}
           placeholder=" "
+          value={value}
+          onChange={(e) => handleOnChange(e)}
           onInput={(e) => handleValidate(e)}
           className=" peer text-sm py-1 font-thin placeholder:hidden z-10 bg-transparent outline-none"
         />
@@ -29,15 +31,18 @@ const Input = (props) => {
         >
           {props.name}
         </label>
-        {
-          name =="password" &&(
-            <div className="absolute block peer-placeholder-shown:hidden peer-focus:block right-0 mx-2 cursor-pointer text-[1.1rem] z-20 bottom-[0.7rem]" onClick={()=>setHidePass(!hidePass)}>
-              {
-                hidePass?<AiOutlineEyeInvisible/> : <AiOutlineEye className=""/> 
-              }
-            </div>
-          )
-        }
+        {name == "password" && (
+          <div
+            className="absolute block peer-placeholder-shown:hidden peer-focus:block right-0 mx-2 cursor-pointer text-[1.1rem] z-20 bottom-[0.7rem]"
+            onClick={() => setHidePass(!hidePass)}
+          >
+            {hidePass ? (
+              <AiOutlineEyeInvisible />
+            ) : (
+              <AiOutlineEye className="" />
+            )}
+          </div>
+        )}
       </div>
       {invalid && (
         <p className="text-[0.7rem] text-cd400 text-justify mt-1">{error}</p>

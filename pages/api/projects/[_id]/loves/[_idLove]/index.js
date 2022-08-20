@@ -1,10 +1,14 @@
 import dbConnect from "../../../../../../lib/dbConnect";
 import projects from "../../../../../../schema/projects";
+import { infoToken } from "../../../../../../lib/function";
 
 export default async function (req, res) {
   const { _id, _idLove } = req.query;
   const { method } = req;
+  const userToken = infoToken(req, res);
   await dbConnect();
+  if (!userToken)
+    return res.status(401).send("You don't have access to do this");
 
   if (method == "DELETE") {
     try {
