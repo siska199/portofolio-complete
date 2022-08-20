@@ -18,7 +18,7 @@ const FAQ = ({data}) => {
         </div>
         <ul className={`max-h-0 ${expand&&"accordion-content"}  scrollbar-hidden  transition-all duration-500 ease-in-out overflow-hidden font-thin text-sm text-cl300 dark:text-cd300 border-l-[0.01rem] border-cl800 dark:border-cd800  `}>
           {
-            data.answears.map((data,i)=>(
+            data?.answears.map((data,i)=>(
               <li key={i}>- {data}</li>
             ))
           }
