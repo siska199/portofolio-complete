@@ -17,26 +17,26 @@ const Project = ({data, active, prevElement}) => {
   return (
     <div className={`px-3 absolute top-0 items-center justify-center flex-col md:flex-row flex gap-[2rem] transition-all ease-in-out duration-1000 transform  ${prevElement?"-translate-x-full":"translate-x-0"} ${active?"translate-x-0":"translate-x-full "}`}>
       <div className='md:my-4 relative flex flex-col gap-5 '>
-        <img src={data.imgApp} alt="" className='object-contain w-[20rem] shadow-md shadow-white'/>
+        <img src={data?.imgApp} alt="" className='object-contain w-[20rem] shadow-md shadow-white'/>
         <div className='absolute left-[4.5rem] bottom-[-1rem] flex justify-center gap-3 '>
           {
             data.stacks.map((data,i)=>(
-              <img key={i} src={data.image} className="w-8 h-8 object-contain" alt="" />
+              <img key={i} src={data?.image} className="w-8 h-8 object-contain" alt="" />
             ))
           }
         </div>
       </div>
 
       <div className='flex flex-col gap-2 md:gap-4 w-3/4'>
-        <h1 className='text-[1.5rem] md:text-[2.1rem] font-bold text-four'>{data.tittle}</h1>
-        <p className='text-justify font-thin md:font-semibold text-sm md:text-base '>{data.detailApp}</p>
+        <h1 className='text-[1.5rem] md:text-[2.1rem] font-bold text-four'>{data?.tittle}</h1>
+        <p className='text-justify font-thin md:font-semibold text-sm md:text-base '>{data?.detailApp}</p>
         <div className='flex space-x-3'>
-          <Link href={data.linkGithub}>
+          <Link href={data?.linkGithub}>
             <a className={styleButton} target="_blank">
               📂 Github Repo
             </a>
           </Link>
-          <Link href={data.linkDemo}>
+          <Link href={data?.linkDemo}>
             <a className={styleButton} target="_blank">
               View Demo
             </a>
@@ -46,7 +46,7 @@ const Project = ({data, active, prevElement}) => {
           {
             data.stacks.map((data,i)=>(
               <div key={i}>
-                ☑ {data.name}
+                ☑ {data?.name}
               </div>
             ))
           }
