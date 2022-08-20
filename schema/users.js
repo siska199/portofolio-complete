@@ -1,4 +1,4 @@
-import {model, models, Schema, ShemaTypes} from "mongoose"
+import {model, models, Schema} from "mongoose"
 import bcrypt from "bcrypt"
 
 const UserShema = new Schema({
@@ -31,7 +31,7 @@ const UserShema = new Schema({
           values : ["visitor","owner"],
           messages:  '{VALUE} is not supported'
         },
-        default : "user",
+        default : "visitor",
      },
      image : {
         type :String,
@@ -45,9 +45,9 @@ const UserShema = new Schema({
 UserShema.path("email").validate((email)=>{
    const emailRegex = new RegExp("^([a-zA-Z0-9_.-])+@(([a-zA-Z0-9-])+.)+([a-zA-Z0-9]{2,4})+$");
    return emailRegex.test(email);
-},'Please fill an correct email address')``
+},'Please fill an correct email address')
 
-UserShema.path("password").validate((email)=>{
+UserShema.path("password").validate((password)=>{
    const passwordRegex = new RegExp("^(?=.*[a-z])(?!.* )(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,20})");
    return passwordRegex.test(password)
 },`Password at least have :
@@ -60,19 +60,18 @@ UserShema.path("password").validate((email)=>{
 
 /* Fire a function before doc save */
 UserShema.pre('save', async function(next){
-   console.log("this field: ", this)
-   if(!this.isModifiend('password')) return next()
+   if(!this.isModified('password')) return next()
    const salt = await bcrypt.genSalt()
-   console.log("salt: ", salt)
    this.password = await bcrypt.hash(this.password,salt)
    next()
 })
 
-UserShema.methods.comparePassword = (password,cb)=>{
-   bcrypt.compare(password, this.password, (err, isMatch)=>{
-      if(err) return cb(err)
-      cb(null, isMatch)
-   })
+UserShema.methods.comparePassword = async function(password){
+   try{
+      return await bcrypt.compare(password, this.password);
+  } catch(err){
+      throw new Error(err.message);
+  }
 }
 
 export default models.users || model("users", UserShema) 

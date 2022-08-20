@@ -33,7 +33,6 @@ StackSchema.path("name").validate(async (name) => {
 }, "This field has been existed");
 
 StackSchema.pre("save", function(next){
-    console.log("this",this.isModified('type'))
   if (!this.isModified('type')) return next();
 
   const name = this.type.name.toLowerCase();

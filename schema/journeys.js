@@ -10,10 +10,10 @@ const JourneySchema = new Schema(
       type: String,
       required: [true, "Please fill constitution of your journey"],
     },
-    activities: {
+    activities: [{
       type: String,
       required: [true, "Please fill activities of your journey"],
-    },
+    }],
     note: [String],
   },
   {
