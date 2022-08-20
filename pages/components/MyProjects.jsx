@@ -31,7 +31,7 @@ const MyProjects = () => {
       <div className="flex flex-col w-full gap-[3rem] md:px-[5rem] ">
         <header className="header-section-menu">My Projects &#128187;</header>
         <div className="relative min-h-[105vh] lg:min-h-[75vh] scrollbar-hidden  w-full overflow-x-hidden">
-          {dataProjects.map((data, i) => (
+          {dataProjects && dataProjects.map((data, i) => (
             <Project
               key={i}
               data={data}
