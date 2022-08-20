@@ -14,7 +14,7 @@ const FAQ = ({data}) => {
           {
             expand?<AiFillMinusCircle className={styleIcon}/>:<BsFillPlusCircleFill className={styleIcon} />
           }
-          <p className='font-bold'>{data.question}</p>
+          <p className='font-bold'>{data?.question}</p>
         </div>
         <ul className={`max-h-0 ${expand&&"accordion-content"}  scrollbar-hidden  transition-all duration-500 ease-in-out overflow-hidden font-thin text-sm text-cl300 dark:text-cd300 border-l-[0.01rem] border-cl800 dark:border-cd800  `}>
           {
