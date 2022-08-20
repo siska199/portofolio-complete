@@ -20,7 +20,7 @@ export default async function (req, res) {
   if (method == "PUT") {
     try {
       const { body } = req;
-      const updateComment = await projects.updateOne(
+      await projects.updateOne(
         { _id, "comments._id": _idComment },
         { $set: { "comments.$.body": body.body } }
       );
