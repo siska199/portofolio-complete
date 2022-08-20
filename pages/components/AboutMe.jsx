@@ -33,7 +33,7 @@ const AboutMe = () => {
                 <div className='flex gap-4 font-semibold'>
                     <Link href="">
                         <a className={styleButton} target="_black">
-                            Download CV
+                            Download Resume
                         </a>
                     </Link>
                     <Link href="https://github.com/siska199">
