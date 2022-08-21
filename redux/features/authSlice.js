@@ -6,7 +6,7 @@ const initialState = {
     modal: false,
     type: "login",
     loadingAuth: false,
-    token: null,
+    token: false,
     userData: {},
   },
 };

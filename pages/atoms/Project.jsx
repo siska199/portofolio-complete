@@ -13,7 +13,7 @@ import { handleModalAuth } from "../../redux/features/authSlice";
 
 const Project = ({ data, active, prevElement }) => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state.auth.value.token);
+  const token = useSelector((state) => state?.auth?.value?.token);
   const handleComments = () => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
