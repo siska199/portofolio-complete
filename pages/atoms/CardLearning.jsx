@@ -13,14 +13,14 @@ const CardLearning = ({ data, refElm }) => {
         <span>
           <AiOutlineCalendar className="text-[1.5rem]" />
         </span>
-        {data.periode}
+        {data?.periode}
       </p>
       <h1 className="md:text-sm text-[0.75rem] font-bold flex gap-2">
         {" "}
         <span>
           <MdOutlineMapsHomeWork className="text-[1.5rem]" />
         </span>{" "}
-        {data.constitution}
+        {data?.constitution}
       </h1>
       <ul className="text-[0.75rem] md:text-sm font-thin flex flex-col gap-1 md:gap-2">
         {data.activities.map((data, i) => (

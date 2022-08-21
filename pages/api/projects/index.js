@@ -5,8 +5,8 @@ import { infoToken } from "../../../lib/function";
 export default async function (req, res) {
   const { method } = req;
   const userToken = infoToken(req, res);
-
   await dbConnect();
+  
   if (method == "GET") {
     try {
       const projectList = await projects
