@@ -13,7 +13,7 @@ import { handleModalAuth } from "../../redux/features/authSlice";
 
 const Project = ({ data, active, prevElement }) => {
   const dispatch = useDispatch();
-  const token = useSelector((state) => state?.auth?.value?.token);
+  const token = useSelector((state) => state.auth.value.token);
   const handleComments = () => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
@@ -66,12 +66,12 @@ const Project = ({ data, active, prevElement }) => {
           {data?.about}
         </p>
         <div className="flex space-x-3">
-          <Link href={data?.linkGithub}>
+          <Link href={data?.linkGithub ? data.linkGithub : ""}>
             <a className={styleButton} target="_blank">
               📂 Github Repo
             </a>
           </Link>
-          <Link href={data?.link}>
+          <Link href={data?.link ? data.link : ""}>
             <a className={styleButton} target="_blank">
               View Demo
             </a>
