@@ -8,9 +8,9 @@ const CardSkill = ({ data }) => {
       </div>
       <div className="">
         <h1 className=" flex text-sm md:text-base items-center gap-3 font-bold">
-          {data.name}
+          {data?.name}
         </h1>
-        <p className=" text-sm md:text-base font-thin">{data.level}</p>
+        <p className=" text-sm md:text-base font-thin">{data?.level}</p>
       </div>
     </div>
   );
