@@ -1,12 +1,14 @@
 import React from "react";
 import { useRouter } from "next/router";
+import InfoUser from "../atoms/InfoUser";
 import Modal from "../layouts/Modal";
 import { menu } from "../../lib/data";
 import { useDispatch, useSelector } from "react-redux";
 import { handleModalAuth } from "../../redux/features/authSlice";
 import { handleModalMenu } from "../../redux/features/menuSlice";
 
-const Sidebar = ({ showSidebar, setActiveId, activeId }) => {
+const Sidebar = ({ setActiveId, activeId }) => {
+  const token = useSelector((state) => state.auth.value.token);
   const dispatch = useDispatch();
   const modalMenu = useSelector((state) => state.menu.value.modal);
   const styleButtonAuth =
@@ -41,10 +43,24 @@ const Sidebar = ({ showSidebar, setActiveId, activeId }) => {
               {data.name}
             </li>
           ))}
-          <li className='px-[2rem] py-3 flex gap-3'>
-              <button onClick={()=>handleClickAuth("register")} className={styleButtonAuth}>Register</button>
-              <button  onClick={()=>handleClickAuth("login")} className={styleButtonAuth}>Login</button>
-          </li>
+          {token ? (
+            <InfoUser />
+          ) : (
+            <li className="px-[2rem] py-3 flex gap-3">
+              <button
+                onClick={() => handleClickAuth("register")}
+                className={styleButtonAuth}
+              >
+                Register
+              </button>
+              <button
+                onClick={() => handleClickAuth("login")}
+                className={styleButtonAuth}
+              >
+                Login
+              </button>
+            </li>
+          )}
         </ul>
       </div>
     </Modal>

@@ -3,6 +3,7 @@ import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
 import Modal from "../layouts/Modal";
 import Input from "../atoms/Input";
+import LoadingIcon from "../atoms/LoadingIcon";
 import {
   handleModalAuth,
   handleRegister,
@@ -11,26 +12,27 @@ import { dataFormAuth } from "../../lib/validateFormAuth";
 
 const Auth = () => {
   const dispatch = useDispatch();
-  const initialForm ={
+  const initialForm = {
     username: "",
     email: "",
     password: "",
-  } 
+  };
   const [form, setForm] = useState(initialForm);
   const loadingAuth = useSelector((state) => state.auth.value.loadingAuth);
-  console.log("loading auth: ", loadingAuth);
   const modal = useSelector((state) => state.auth.value.modal);
   const type = useSelector((state) => state.auth.value.type);
   const [typeAuth, setTypeAuth] = useState(type);
   const disabledButtonLogin =
     type == "login" && form.email && form.password ? false : true;
+
   const disabledButtonRegister =
     type == "register" && form.username && form.email && form.password
       ? false
       : true;
-  console.log("disabled button reg: ", disabledButtonRegister);
+
   const handleTypeAuth = () => {
     typeAuth == "login" ? setTypeAuth("register") : setTypeAuth("login");
+    setForm(initialForm);
   };
 
   const handleCloseAuth = () => {
@@ -50,9 +52,10 @@ const Auth = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(handleRegister(form)).then(()=>{
-      setForm(initialForm)
-    })
+    dispatch(handleRegister(form)).then(() => {
+      setForm(initialForm);
+      handleCloseAuth();
+    });
   };
 
   return (
@@ -87,10 +90,13 @@ const Auth = () => {
         <div>
           <button
             className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 cursor-pointer disabled:cursor-default`}
-            disabled={false}
+            disabled={
+              type == "login" ? disabledButtonLogin : disabledButtonRegister
+            }
             onClick={(e) => handleOnSubmit(e)}
           >
             {typeAuth == "login" ? "Login" : "Register"}
+            {loadingAuth && <LoadingIcon size="ml-[0.5rem] w-[1.1rem]" />}
           </button>
           <p className="text-center font-thin py-1">
             Already have an account ?

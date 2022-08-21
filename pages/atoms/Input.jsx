@@ -9,7 +9,6 @@ const Input = (props) => {
   const handleValidate = (e) => {
     const value = e.target.value;
     const re = new RegExp(`${pattern}`);
-    console.log("test val: ", re.test(value));
     setInvalid((prev) => (re.test(value) ? false : true));
   };
 

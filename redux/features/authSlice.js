@@ -6,7 +6,7 @@ const initialState = {
     modal: false,
     type: "login",
     loadingAuth: false,
-    token: "",
+    token: null,
     userData: {},
   },
 };
@@ -20,6 +20,28 @@ const handleRegister = createAsyncThunk("auth/register", async (form) => {
     };
     const body = JSON.stringify({ ...form });
     const res = await API.post("/users/register", body, config);
+    setAuthToken(res.data.token);
+    localStorage.setItem("token", res.data.token);
+    return {
+      token: res.data.token,
+      userData: {
+        ...res.data,
+      },
+    };
+  } catch (error) {
+    throw error;
+  }
+});
+
+const handleLogin = createAsyncThunk("auth/login", async (form) => {
+  try {
+    const config = {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    };
+    const body = JSON.stringify({ ...form });
+    const res = await API.post("/users/login", body, config);
     setAuthToken(res.data.token);
     localStorage.setItem("token", res.data.token);
     return {
@@ -58,6 +80,11 @@ const authSlice = createSlice({
       state.value.modal = !state.value.modal;
       state.value.type = action.payload;
     },
+    handleLogout: (state, action) => {
+      localStorage.removeItem("token");
+      state.value.token = null;
+      state.value.userData = {};
+    },
   },
   extraReducers: {
     [handleRegister.pending]: (state, action) => {
@@ -72,14 +99,30 @@ const authSlice = createSlice({
       state.value.loadingAuth = false;
     },
 
+    [handleLogin.pending]: (state, action) => {
+      state.value.loadingAuth = true;
+    },
+    [handleLogin.fulfilled]: (state, action) => {
+      state.value.loadingAuth = false;
+      state.value.token = action.payload.token;
+      state.value.userData = action.payload.userData;
+    },
+    [handleLogin.rejected]: (state, action) => {
+      state.value.loadingAuth = false;
+    },
+
     [handleRefresh.pending]: () => {},
-    [handleRefresh.fulfilled]: () => {},
+    [handleRefresh.fulfilled]: (state, action) => {
+      state.value.loadingAuth = false;
+      state.value.token = action.payload.token;
+      state.value.userData = action.payload.userData;
+    },
     [handleRefresh.rejected]: () => {},
   },
 });
 
-export const { handleModalAuth } = authSlice.actions;
+export const { handleModalAuth, handleLogout } = authSlice.actions;
 
 export default authSlice.reducer;
 
-export { handleRegister, handleRefresh };
+export { handleRegister, handleLogin, handleRefresh };

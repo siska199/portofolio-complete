@@ -11,7 +11,6 @@ const menuSlice = createSlice({
     initialState,
     reducers : {
         handleModalMenu : (state,action)=>{
-            console.log("change State")
             state.value.modal = action.payload
         },
         
