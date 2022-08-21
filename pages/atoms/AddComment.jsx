@@ -6,7 +6,6 @@ import { handleAddComment } from "../../redux/features/projectSlice";
 const AddComment = () => {
   const dispatch = useDispatch();
   const token = useSelector((state) => state.auth.value.token);
-  console.log("token: ", token)
   const commentRef = useRef(null);
   const handleAddCommentProject = (e) => {
     e.preventDefault();

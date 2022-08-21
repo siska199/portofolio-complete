@@ -23,7 +23,7 @@ const Comments = () => {
     <Modal type="comments" showModal={true}>
       <div
         onClick={(e) => e.stopPropagation()}
-        className="relative w-[90%] lg:w-[60rem] min-h-full bg-cl900 dark:bg-cd900 p-5"
+        className="relative w-[90%] lg:w-[60rem] min-h-full text-white bg-cl900 dark:bg-cd900 p-5"
       >
         <div
           onClick={() => handleCloseComments()}

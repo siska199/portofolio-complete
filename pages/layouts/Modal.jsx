@@ -17,7 +17,7 @@ const Modal = ({ showModal, children, type }) => {
     case "auth":
       customeStyle = `${
         showModal ? "translate-x-0 " : "-translate-x-full"
-      } h-full grid place-items-center bg-black/90`;
+      } h-full grid place-items-center bg-black/90 z-[99999]`;
       break;
     case "comments":
       customeStyle = `${
