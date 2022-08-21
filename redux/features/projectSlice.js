@@ -39,14 +39,11 @@ const handleGetComments = createAsyncThunk(
   }
 );
 const handleAddComment = createAsyncThunk(
-  "",
+  "project/add-comment",
   async (form, { getState, dispatch }) => {
     try {
       const state = getState();
-      console.log(state);
       const idProject = state.project.value.dataComments._id;
-      console.log("_id project: ", idProject);
-      console.log("form: ", form);
       const config = {
         headers: {
           "Content-Type": "application/json",
@@ -59,6 +56,35 @@ const handleAddComment = createAsyncThunk(
         config
       );
       dispatch(handleGetComments(idProject));
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+
+const handleLove = createAsyncThunk(
+  "project/love",
+  async (dataLove, { dispatch }) => {
+    try {
+      let res;
+      if (dataLove._id) {
+        res = await API.delete(
+          `/projects/${dataLove.idProject}/loves/${dataLove._id}`
+        );
+      } else {
+        const config = {
+          headers: {
+            "Content-Type": "application/json",
+          },
+        };
+        const body = JSON.stringify({ body: true });
+        res = await API.post(
+          `/projects/${dataLove.idProject}/loves`,
+          body,
+          config
+        );
+      }
+      dispatch(handleGetProjects());
     } catch (error) {
       throw error;
     }
@@ -103,9 +129,13 @@ const projectSlice = createSlice({
     [handleAddComment.rejected]: (state, action) => {
       state.value.loadingAddComment = false;
     },
+
+    [handleLove.pending]: (state, action) => {},
+    [handleLove.fulfilled]: (state, action) => {},
+    [handleLove.rejected]: (state, action) => {},
   },
 });
 
 export default projectSlice.reducer;
 export const { handleModalComments } = projectSlice.actions;
-export { handleGetProjects, handleGetComments, handleAddComment };
+export { handleGetProjects, handleGetComments, handleAddComment, handleLove };

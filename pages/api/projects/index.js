@@ -14,9 +14,19 @@ export default async function (req, res) {
         .sort("-createdAt")
         .populate("stacks", ["type", "name", "image", "_id"])
         .populate("comments")
-        .populate("loves");
-      res.status(200).json(projectList);
+        .lean();
+
+      const modifiedProjectList = projectList.map((project) => ({
+        ...project,
+        love: userToken
+          ? project.loves.filter((love) => {
+              return love.user.toString() == userToken._id;
+            })[0]
+          : false,
+      }));
+      res.status(200).json(modifiedProjectList);
     } catch (error) {
+      console.log(error);
       res.status(500).json(error);
     }
   }

@@ -15,7 +15,7 @@ export default async function (req, res) {
       const { body } = req;
       const dataProject = await projects.findOne({ _id });
       if (!dataProject)
-        return res.status(400).send("No data asociate with this project");
+        return res.status(400).send("No data asociate with this id");
       dataProject.loves.push({
         user: userToken._id,
         body: body.body,

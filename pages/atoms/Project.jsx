@@ -1,16 +1,19 @@
 import React from "react";
 import Link from "next/link";
-import { BsSuitHeart } from "react-icons/bs";
+import { BsSuitHeart, BsFillSuitHeartFill } from "react-icons/bs";
 import { GoComment } from "react-icons/go";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import {
   handleGetComments,
+  handleLove,
   handleModalComments,
 } from "../../redux/features/projectSlice";
 import Tooltip from "./Tooltip";
+import { handleModalAuth } from "../../redux/features/authSlice";
 
 const Project = ({ data, active, prevElement }) => {
   const dispatch = useDispatch();
+  const token = useSelector((state) => state.auth.value.token);
   const handleComments = () => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
@@ -19,6 +22,12 @@ const Project = ({ data, active, prevElement }) => {
       dispatch(handleModalComments(true));
     }, 100);
   };
+  const handleLoveProject = () => {
+    token
+      ? dispatch(handleLove({ ...data.love, idProject: data._id }))
+      : dispatch(handleModalAuth("login"));
+  };
+
   const styleButton =
     "font-semibold border-[0.005rem] border-cl700 dark:border-cd700 rounded-full w-auto px-2 md:px-3 py-1 text-sm md:text-base cursor-pointer bg-cl700 dark:bg-cd700 border-third hover:bg-transparent hover:dark:bg-transparent";
   return (
@@ -74,8 +83,11 @@ const Project = ({ data, active, prevElement }) => {
         </div>
         <div className="flex gap-4 text-[1.5rem]">
           <div className="font-thin  group relative ">
-            <div className="cursor-pointer flex flex-col relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2">
-              <BsSuitHeart />
+            <div
+              onClick={() => handleLoveProject()}
+              className="cursor-pointer flex flex-col relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2"
+            >
+              {data.love ? <BsFillSuitHeartFill /> : <BsSuitHeart />}
             </div>
             <p className="text-sm text-center font-bold ">
               {data.loves.length}

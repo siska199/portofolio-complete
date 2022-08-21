@@ -31,8 +31,21 @@ export default async function (req, res) {
 
   if (method == "GET") {
     try {
-      const skillList = await skills.find().sort("-createdAt");
-      res.status(200).json(skillList);
+      const skillFrontendList = await skills
+        .find({ type: "frontend" })
+        .sort("-createdAt")
+        .lean();
+      const skillBackendList = await skills
+        .find({ type: "backend" })
+        .sort("-createdAt")
+        .lean();
+
+      const combineSkillList = {
+        frontend: skillFrontendList,
+        backend: skillBackendList,
+      };
+
+      res.status(200).json(combineSkillList);
     } catch (error) {
       res.status(500).send(`${error}`);
     }
