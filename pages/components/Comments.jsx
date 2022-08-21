@@ -4,13 +4,17 @@ import { MdClose } from "react-icons/md";
 import Modal from "../layouts/Modal";
 import AddComment from "../atoms/AddComment";
 import Comment from "../atoms/Comment";
-import { handleModalComments } from "../../redux/features/projectSlice";
+import {
+  handleGetProjects,
+  handleModalComments,
+} from "../../redux/features/projectSlice";
 
 const Comments = () => {
   const dispatch = useDispatch();
-  const dataComments = useSelector(state=>state.project.value.dataComments)
+  const dataComments = useSelector((state) => state.project.value.dataComments);
   const handleCloseComments = () => {
     dispatch(handleModalComments(false));
+    dispatch(handleGetProjects());
     const html = document.querySelector("html");
     html.classList.remove("overflow-y-hidden");
   };

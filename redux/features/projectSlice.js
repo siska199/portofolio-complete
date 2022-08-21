@@ -10,6 +10,7 @@ const initialState = {
       title: "",
       comments: [],
     },
+    loadingAddComment: false,
   },
 };
 
@@ -32,6 +33,32 @@ const handleGetComments = createAsyncThunk(
       return {
         dataComments: res.data,
       };
+    } catch (error) {
+      throw error;
+    }
+  }
+);
+const handleAddComment = createAsyncThunk(
+  "",
+  async (form, { getState, dispatch }) => {
+    try {
+      const state = getState();
+      console.log(state);
+      const idProject = state.project.value.dataComments._id;
+      console.log("_id project: ", idProject);
+      console.log("form: ", form);
+      const config = {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      };
+      const body = JSON.stringify(form);
+      const res = await API.post(
+        `/projects/${idProject}/comments`,
+        body,
+        config
+      );
+      dispatch(handleGetComments(idProject));
     } catch (error) {
       throw error;
     }
@@ -65,12 +92,20 @@ const projectSlice = createSlice({
     [handleGetComments.fulfilled]: (state, action) => {
       state.value.dataComments = action.payload.dataComments;
     },
-    [handleGetComments.rejected]: (state, action) => {
-      state.value.loadingAuth = false;
+    [handleGetComments.rejected]: (state, action) => {},
+
+    [handleAddComment.pending]: (state, action) => {
+      state.value.loadingAddComment = true;
+    },
+    [handleAddComment.fulfilled]: (state, action) => {
+      state.value.loadingAddComment = false;
+    },
+    [handleAddComment.rejected]: (state, action) => {
+      state.value.loadingAddComment = false;
     },
   },
 });
 
 export default projectSlice.reducer;
 export const { handleModalComments } = projectSlice.actions;
-export { handleGetProjects, handleGetComments };
+export { handleGetProjects, handleGetComments, handleAddComment };

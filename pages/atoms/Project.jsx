@@ -14,8 +14,10 @@ const Project = ({ data, active, prevElement }) => {
   const handleComments = () => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
-    dispatch(handleModalComments(true));
     dispatch(handleGetComments(data._id));
+    setTimeout(() => {
+      dispatch(handleModalComments(true));
+    }, 100);
   };
   const styleButton =
     "font-semibold border-[0.005rem] border-cl700 dark:border-cd700 rounded-full w-auto px-2 md:px-3 py-1 text-sm md:text-base cursor-pointer bg-cl700 dark:bg-cd700 border-third hover:bg-transparent hover:dark:bg-transparent";

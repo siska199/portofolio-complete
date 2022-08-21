@@ -5,6 +5,7 @@ import Modal from "../layouts/Modal";
 import Input from "../atoms/Input";
 import LoadingIcon from "../atoms/LoadingIcon";
 import {
+  handleLogin,
   handleModalAuth,
   handleRegister,
 } from "../../redux/features/authSlice";
@@ -52,10 +53,12 @@ const Auth = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    dispatch(handleRegister(form)).then(() => {
-      setForm(initialForm);
-      handleCloseAuth();
-    });
+    dispatch(type == "login" ? handleLogin(form) : handleRegister(form)).then(
+      () => {
+        setForm(initialForm);
+        handleCloseAuth();
+      }
+    );
   };
 
   return (
@@ -90,9 +93,9 @@ const Auth = () => {
         <div>
           <button
             className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 cursor-pointer disabled:cursor-default`}
-            disabled={
-              type == "login" ? disabledButtonLogin : disabledButtonRegister
-            }
+            // disabled={
+            //   type == "login" ? disabledButtonLogin : disabledButtonRegister
+            // }
             onClick={(e) => handleOnSubmit(e)}
           >
             {typeAuth == "login" ? "Login" : "Register"}
