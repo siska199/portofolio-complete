@@ -14,12 +14,14 @@ import Sidebar from "./components/Sidebar";
 import Auth from "./components/Auth";
 import Footer from "./components/Footer";
 import Tooltip from "./atoms/Tooltip";
+import Comments from "./components/Comments";
 import { handleModalMenu } from "../redux/features/menuSlice";
 
 const Home = () => {
   const dispatch = useDispatch();
   const modalAuth = useSelector((state) => state.auth.value.modal);
   const modalMenu = useSelector((state) => state.menu.value.modal);
+  const modalComment = useSelector((state) => state.project.value.modalComment);
 
   const styleIconMenu =
     "cursor-pointer z-[99] text-white text-[2rem] md:text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out";
@@ -96,6 +98,7 @@ const Home = () => {
       </div>
 
       {modalAuth && <Auth />}
+      {modalComment && <Comments />}
     </Page>
   );
 };

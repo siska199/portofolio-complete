@@ -53,7 +53,6 @@ const MyProjects = () => {
           <CgPlayTrackNext color="white" />
         </button>
       )}
-      {modalComment && <Comments />}
     </Section>
   );
 };
