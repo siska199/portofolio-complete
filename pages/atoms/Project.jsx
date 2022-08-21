@@ -38,12 +38,12 @@ const Project = ({ data, active, prevElement }) => {
     >
       <div className="md:my-4 relative flex flex-col gap-5 ">
         <img
-          src={data.image}
+          src={data?.image}
           alt=""
           className="object-contain w-[20rem] shadow-md shadow-white"
         />
         <div className="absolute left-[4.5rem] bottom-[-1rem] flex justify-center gap-3 ">
-          {data.stacks.map((data, i) =>
+          {data?.stacks.map((data, i) =>
             data.image ? (
               <img
                 key={i}
@@ -60,25 +60,25 @@ const Project = ({ data, active, prevElement }) => {
 
       <div className="flex flex-col gap-2 md:gap-4 w-3/4">
         <h1 className="text-[1.5rem] md:text-[2.1rem] font-bold text-four">
-          {data.title}
+          {data?.title}
         </h1>
         <p className="text-justify font-thin md:font-semibold text-sm md:text-base ">
-          {data.about}
+          {data?.about}
         </p>
         <div className="flex space-x-3">
-          <Link href={data.linkGithub}>
+          <Link href={data?.linkGithub}>
             <a className={styleButton} target="_blank">
               📂 Github Repo
             </a>
           </Link>
-          <Link href={data.link}>
+          <Link href={data?.link}>
             <a className={styleButton} target="_blank">
               View Demo
             </a>
           </Link>
         </div>
         <div className="text-[0.7rem] md:text-base">
-          {data.stacks &&
+          {data?.stacks &&
             data.stacks.map((data, i) => <div key={i}>☑ {data.name}</div>)}
         </div>
         <div className="flex gap-4 text-[1.5rem]">
@@ -87,10 +87,10 @@ const Project = ({ data, active, prevElement }) => {
               onClick={() => handleLoveProject()}
               className="cursor-pointer flex flex-col relative group  bg-pink-600 hover:bg-transparent hover:border-[0.005rem] border-pink-400 rounded-full p-2"
             >
-              {data.love ? <BsFillSuitHeartFill /> : <BsSuitHeart />}
+              {data?.love ? <BsFillSuitHeartFill /> : <BsSuitHeart />}
             </div>
             <p className="text-sm text-center font-bold ">
-              {data.loves.length}
+              {data?.loves.length}
             </p>
             <Tooltip type={"love"} message={"Love this project"} />
           </div>
@@ -103,7 +103,7 @@ const Project = ({ data, active, prevElement }) => {
               <GoComment />
             </div>
             <p className="text-sm text-center font-bold ">
-              {data.comments.length}
+              {data?.comments.length}
             </p>
             <Tooltip type={"love"} message={"Comment this project"} />
           </div>
