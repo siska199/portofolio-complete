@@ -23,7 +23,7 @@ const CardLearning = ({ data, refElm }) => {
         {data?.constitution}
       </h1>
       <ul className="text-[0.75rem] md:text-sm font-thin flex flex-col gap-1 md:gap-2">
-        {data.activities.map((data, i) => (
+        {data?.activities.map((data, i) => (
           <li key={i} className="text-justify">
             &#128505; {data}
           </li>
