@@ -12,8 +12,7 @@ export default async function (req, res) {
       const listStack = await stacks
         .find()
         .sort("-type.identity")
-        .select(["name", "image"]);
-      console.log("stacks; ", listStack);
+        .select(["name", "image", "type.name"]);
       res.status(200).json(listStack);
     } catch (error) {
       res.status(200).send(error);
@@ -38,7 +37,6 @@ export default async function (req, res) {
       const createStack = await stacks.create(data);
       res.status(201).json(createStack);
     } catch (error) {
-      console.log(error);
       let msgError = error.errors ? [] : "";
       if (error.errors) {
         Object.keys(error.errors).forEach((key) => {

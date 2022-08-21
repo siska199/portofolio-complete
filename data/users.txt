@@ -1,0 +1,19 @@
+{
+    "name":"Siska Apriana Rifianti",
+    "username":"kyuuchan199",
+    "email":"siska.apriana.1703226@students.um.ac.id",
+    "password":"11April@naruto199",
+    "image":"https://i.pinimg.com/736x/e3/d5/80/e3d580e7d591038d2a720d7be6df9398.jpg",
+    "role":"owner"
+}
+
+{
+    "name":"Siska Apriana Rifianti",
+    "username":"siska199",
+    "email":"kyuuchan199@gmail.com",
+    "password":"11April@naruto199",
+    "image":"https://i.pinimg.com/564x/5d/23/a0/5d23a018376860427e2c5e364b81a2e6.jpg",
+    
+}
+
+

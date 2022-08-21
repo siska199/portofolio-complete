@@ -22,7 +22,7 @@ export default async function (req, res) {
         ...body,
         image: body.image
           ? body.image
-          : "https://static.wikia.nocookie.net/itstabletoptime/images/b/b5/Default.jpg/revision/latest?cb=20210606184459",
+          : "https://i.pinimg.com/564x/4c/85/31/4c8531dbc05c77cb7a5893297977ac89.jpg",
       });
       const token = generateToken({ _id: addUser._id, role: addUser.role });
       res.status(201).json({
@@ -35,7 +35,15 @@ export default async function (req, res) {
         token,
       });
     } catch (error) {
-      res.status(500).json(error);
+      let msgError = error.errors ? [] : "";
+      if (error.errors) {
+        Object.keys(error.errors).forEach((key) => {
+          msgError.push(error.errors[key].message);
+        });
+      } else {
+        msgError = error;
+      }
+      res.status(500).json(msgError);
     }
   }
 }

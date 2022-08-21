@@ -17,7 +17,15 @@ export default async function (req, res) {
       const addSkill = await skills.create(body);
       res.status(201).json(addSkill);
     } catch (error) {
-      res.status(500).send(`${error}`);
+      let msgError = error.errors ? [] : "";
+      if (error.errors) {
+        Object.keys(error.errors).forEach((key) => {
+          msgError.push(error.errors[key].message);
+        });
+      } else {
+        msgError = error;
+      }
+      res.status(500).json(msgError);
     }
   }
 

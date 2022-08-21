@@ -1,0 +1,102 @@
+[
+    {
+        "type": {
+            "name": "Frontend Framework"
+        },
+        "name": "Typescript",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1661043662/Portofolio%20%28website%29/Stacks/typescript_gkxvvs.png"
+    },
+    {
+        "type": {
+            "name": "Database"
+        },
+        "name": "Mongodb/mongoose",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/mongodb_prgpbk.png"
+    },
+    {
+        "type": {
+            "name": "Database"
+        },
+        "name": "MySql",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/mysql_rkv51p.png"
+    },
+    {
+        "type": {
+            "name": "Framework Backend"
+        },
+        "name": "Sanity",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660977376/Portofolio%20%28website%29/Stacks/sanity_ckmku2.png"
+    },
+    {
+        "type": {
+            "name": "Framework Backend"
+        },
+        "name": "Graphql",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/graphql_mi7cuj.png"
+    },
+    {
+        "type": {
+            "name": "Framework Backend"
+        },
+        "name": "Express Js",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/express_bmoc0j.png"
+    },
+    {
+        "type": {
+            "name": "Framework Backend"
+        },
+        "_id": "630082c4865956294e10a794",
+        "name": "Firebase",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/firebase_dagc1x.png"
+    },
+    {
+        "type": {
+            "name": "State Management"
+        },
+        "name": "Redux",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/redux_rlluzu.png"
+    },
+    {
+        "type": {
+            "name": "State Management"
+        },
+        "name": "Redux Toolkit",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/redux_rlluzu.png"
+    },
+    {
+        "type": {
+            "name": "Framework Css"
+        },
+        "_id": "63008167865956294e10a779",
+        "name": "Styled Components",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/styled-components_hs23dc.png"
+    },
+    {
+        "type": {
+            "name": "Framework Css"
+        },
+        "name": "Tailwind",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/tailwind_pwthq6.png"
+    },
+    {
+        "type": {
+            "name": "Framework Css"
+        },
+        "name": "Bootstrap",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/bootstrap_ribkw9.png"
+    },
+    {
+        "type": {
+            "name": "Framework Frontend"
+        },
+        "name": "React",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/react_ouwqke.webp"
+    },
+    {
+        "type": {
+            "name": "Framework Frontend"
+        },
+        "name": "Next Js",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/nextjs_aeiwsq.png"
+    }
+]

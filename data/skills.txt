@@ -1,0 +1,86 @@
+
+    {
+        "name": "React / Next JS",
+        "tingkat": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "HTML",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "CSS",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Javascript",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Typescript",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Tailwind",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Bootstrap",
+        "level": "intermediet",
+        "type": "frontend"
+    },
+    {
+        "name": "Styled Components",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Redux / Redux Toolkit",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Git",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Jquery",
+        "level": "intermediet",
+        "type": "frontend",
+    },
+    {
+        "name": "Express JS",
+        "level": "intermediet",
+        "type": "backend",
+    },
+    {
+        "name": "Firebase",
+        "level": "intermediet",
+        "type": "backend",
+    },
+    {
+        "name": "Mongodb / Mongoose",
+        "level": "intermediet",
+        "type": "backend",
+    },
+    {
+        "name": "MySQL with ORM",
+        "level": "intermediet",
+        "type": "backend",
+    },
+    {
+        "name": "GraphQL",
+        "level": "intermediet",
+        "type": "backend",
+    },
+    {
+        "name": "Hapi",
+        "level": "basic",
+        "type": "backend",
+    }
