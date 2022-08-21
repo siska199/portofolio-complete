@@ -8,11 +8,10 @@ const InfoUser = () => {
   const userData = useSelector((state) => state.auth.value.userData);
 
   const handleLogoutUser = () => {
+    const html = document.querySelector("html");
+    html.classList.remove("overflow-y-hidden");
     dispatch(handleLogout());
     dispatch(handleModalMenu(false));
-
-    const html = document.querySelector("html");
-    html.classList.add("overflow-y-hidden");
   };
   return (
     <section className="mx-[2rem] p-3 flex gap-4 border-[0.005rem] rounded-xl dark:border-cd600 border-cl600">

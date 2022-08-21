@@ -18,7 +18,7 @@ function Wrapper({children}){
   const dispatch = useDispatch()
 
   useEffect(()=>{
-    dispatch(handleRefresh())
+    localStorage.getItem("token") && dispatch(handleRefresh())
   })
   return(
     <>
