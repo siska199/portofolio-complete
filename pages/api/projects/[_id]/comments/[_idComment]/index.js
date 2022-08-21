@@ -14,6 +14,8 @@ export default async function (req, res) {
   if (method == "DELETE") {
     try {
       const dataProject = await projects.findOne({ _id });
+      if (!dataProject)
+        return res.status(400).send("No data asociate with this project");
       dataProject.comments.pull({ _id: _idComment });
       await dataProject.save();
       res.status(201).json(`Delete comment success`);

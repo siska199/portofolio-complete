@@ -1,17 +1,22 @@
-import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import React, { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { CgPlayTrackPrev, CgPlayTrackNext } from "react-icons/cg";
 import Section from "../layouts/Section";
 import Comments from "../components/Comments";
 import Project from "../atoms/Project";
-import { projects as dataProjects } from "../../lib/data";
+// import { projects as dataProjects } from "../../lib/data";
+import { handleGetProjects } from "../../redux/features/projectSlice";
 
 const MyProjects = () => {
+  const dispatch = useDispatch();
+  const projects = useSelector((state) => state.project.value.projects);
   const modalComment = useSelector((state) => state.project.value.modalComment);
   const styleButtonSlider =
     "absolute top-[30%] md:top-[50%] text-[2.2rem] md:text-[3rem] !text-white z-[10]";
   const [indexData, setIndexData] = useState(0);
-
+  useEffect(() => {
+    dispatch(handleGetProjects());
+  }, []);
   const handlePrevButton = () => {
     setIndexData((prev) => prev - 1);
   };
@@ -30,8 +35,8 @@ const MyProjects = () => {
       )}
       <div className="flex flex-col w-full gap-[3rem] md:px-[5rem] ">
         <header className="header-section-menu">My Projects &#128187;</header>
-        <div className="relative min-h-[105vh] lg:min-h-[75vh] scrollbar-hidden  w-full overflow-x-hidden">
-          {dataProjects && dataProjects.map((data, i) => (
+        <div className="relative min-h-[105vh] lg:min-h-[85vh] scrollbar-hidden  w-full overflow-x-hidden">
+          {projects.map((data, i) => (
             <Project
               key={i}
               data={data}
@@ -41,7 +46,7 @@ const MyProjects = () => {
           ))}
         </div>
       </div>
-      {indexData < dataProjects.length - 1 && (
+      {indexData < projects.length - 1 && (
         <button
           onClick={() => handleNextButton()}
           className={`${styleButtonSlider} right-0`}

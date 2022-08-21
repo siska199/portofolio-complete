@@ -13,12 +13,10 @@ const StackSchema = new Schema(
       },
       identity: {
         type: Number,
-        // required: [true, "Please fill identity of type stacks"],
       },
     },
     image: {
       type: String,
-      required: [true, "image of stack i required"],
     },
   },
   {
@@ -27,13 +25,13 @@ const StackSchema = new Schema(
 );
 
 StackSchema.path("name").validate(async (name) => {
-  const dataExist = await model("stacks").find({ name : name });
+  const dataExist = await model("stacks").find({ name: name });
   if (dataExist.length > 0) return false;
   return true;
 }, "This field has been existed");
 
-StackSchema.pre("save", function(next){
-  if (!this.isModified('type')) return next();
+StackSchema.pre("save", function (next) {
+  if (!this.isModified("type")) return next();
 
   const name = this.type.name.toLowerCase();
 
@@ -59,9 +57,12 @@ StackSchema.pre("save", function(next){
     case "query language":
       this.type.identity = 7;
       break;
+    case "cms":
+      this.type.identity = 8;
+      break;
     default:
-      this.type.identity = 10
-      break
+      this.type.identity = 10;
+      break;
   }
 
   return next();

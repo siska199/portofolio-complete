@@ -11,7 +11,7 @@ export default async function (req, res) {
     try {
       const listStack = await stacks
         .find()
-        .sort("-type.identity")
+        .sort("type.identity")
         .select(["name", "image", "type.name"]);
       res.status(200).json(listStack);
     } catch (error) {

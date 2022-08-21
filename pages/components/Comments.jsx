@@ -1,15 +1,14 @@
 import React from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { MdClose } from "react-icons/md";
 import Modal from "../layouts/Modal";
 import AddComment from "../atoms/AddComment";
 import Comment from "../atoms/Comment";
-import { dataCommentById } from "../../lib/data";
 import { handleModalComments } from "../../redux/features/projectSlice";
 
 const Comments = () => {
   const dispatch = useDispatch();
-
+  const dataComments = useSelector(state=>state.project.value.dataComments)
   const handleCloseComments = () => {
     dispatch(handleModalComments(false));
     const html = document.querySelector("html");
@@ -29,12 +28,12 @@ const Comments = () => {
           <MdClose />
         </div>
         <h1 className="text-center font-bold text-[2rem] md:text-[3rem]">
-          {dataCommentById.title}
+          {dataComments.title}
         </h1>
         <div className="w-[90%] mx-auto justify-center items-center mt-[3rem] ">
           <AddComment />
           <div className="flex flex-col mt-5 gap-3 max-h-[20rem] overflow-y-scroll">
-            {dataCommentById.comments.map((data, i) => (
+            {dataComments.comments.map((data, i) => (
               <Comment data={data} key={i} />
             ))}
           </div>

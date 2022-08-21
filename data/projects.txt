@@ -3,17 +3,17 @@
     "name" :"DeweTour",
     "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660978153/Portofolio%20%28website%29/Projects/dewetour/cover_dnlmow.png",
     "logo": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660978130/Portofolio%20%28website%29/Projects/dewetour/logo_kl3glx.png",
-    "stacks" : ["630080f6865956294e10a771","6300824b865956294e10a78b","63008264865956294e10a78e","6300827d865956294e10a791"],
-     "about":"The DeweTour app is the first fullstack app I made to fulfill a task while joining dumbways bootcamp. This application is made using react js as a frontend library, bootstrap as a css framework, react context as state management, express js as the backend framework, and MySQL as the database. I also use some libraries to help build this website such as axios, react-icos, react-context and sweetalert2 for the frontend and cloudinary, jsonwebtoken, bcrypt, and multer for the backend.",
-     "linkGithub":"https://github.com/siska199?tab=repositories&q=dewe&type=&language=&sort=",
-     "link":"https://dewetour199.vercel.app/"
+    "stacks" : ["6301910544487c415102f63a","630190fe44487c415102f637","630190e644487c415102f62e","630190aa44487c415102f622","6301908c44487c415102f619"],
+    "about":"The DeweTour app is the first fullstack app I made to fulfill a task while joining dumbways bootcamp. This application is made using react js as a frontend library, bootstrap as a css framework, react context as state management, express js as the backend framework, and MySQL as the database. I also use some libraries to help build this website such as axios, react-icos, react-context and sweetalert2 for the frontend and cloudinary, jsonwebtoken, bcrypt, and multer for the backend.",
+    "linkGithub":"https://github.com/siska199?tab=repositories&q=dewe&type=&language=&sort=",
+    "link":"https://dewetour199.vercel.app/"
 }
 {
     "title" : "Literature Website",
     "name" :"Literature",
     "image" : "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979047/Portofolio%20%28website%29/Projects/literature/cover_udzqjj.png",
     "logo" :"https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979053/Portofolio%20%28website%29/Projects/literature/logo_d7fexl.png",
-    "stacks" : ["630080f6865956294e10a771","6300824b865956294e10a78b","63008264865956294e10a78e","6300827d865956294e10a791"],
+    "stacks" : ["6301910544487c415102f63a","630190fe44487c415102f637","630190e644487c415102f62e","630190aa44487c415102f622","6301908c44487c415102f619"],
     "about":"Literature app is a fullstack application that i made to fulfill the final project of the dumbways bootcamp. This application is made using react js as a frontend library, bootstrap as a css framework, react context as state management, express js as the backend framework, and MySQL as the database. I also use some libraries to help build this website such as axios, react-pdf, react-icos, and sweetalert2 for the frontend and cloudinary, jsonwebtoken, bcrypt, and multer for the backend. In this application I added a chat system using socket.io, unfortunately when it was deployed to production this feature does not work.",
     "linkGithub":"https://github.com/siska199?tab=repositories&q=literature&type=&language=&sort=",
     "link":"https://literature199.vercel.app/"
@@ -24,7 +24,7 @@
     "name" :"clone-instagram-199",
     "image" : "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979318/Portofolio%20%28website%29/Projects/clone-instagram/cover_wzco66.png",
     "logo" :"https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979319/Portofolio%20%28website%29/Projects/clone-instagram/logo_qsnwpk.webp",
-     "stacks" : ["630081da865956294e10a782","6300817d865956294e10a77c","630081ac865956294e10a77f","630082c4865956294e10a794"],
+     "stacks" : ["6301910b44487c415102f63d","6301911244487c415102f640","630190f844487c415102f634","630190b744487c415102f628","630190b044487c415102f625"],
      "about":"Clone instagram is the first application I made with the aim of learning the Next JS framework and tailwind css. In this application i also use redux as state management but the reason why i use redux in this app just to recall my memory and understanding about how to use konvensional redux and the last is i use firebase as the database. The authentication system used is NextAuth with Google as the provider. Unfortunately for now, the clone-instagram-199 application can only add posts, likes and comments. Libraries used to help build this application include emoji-picker-react, react-icons and redux-thunk.",
      "linkGithub":"https://github.com/siska199/clone-instagram",
      "link":"https://clone-ig199.vercel.app/"
@@ -35,7 +35,7 @@
     "name" :"clone-Foody-199",
     "image" : "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979795/Portofolio%20%28website%29/Projects/clone-foody/cover_dvyefr.png",
     "logo" :"https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660979803/Portofolio%20%28website%29/Projects/clone-foody/logo_ffmsvm.png",
-     "stacks" : ["630081da865956294e10a782","6300817d865956294e10a77c","63008a9e865956294e10a7aa","630082c4865956294e10a794"],
+     "stacks" : ["6301910b44487c415102f63d","6301911244487c415102f640","630190f844487c415102f634","630190c544487c415102f62b","630190b044487c415102f625"],
      "about":"The foody clone application is an application that I made with the aim of sharpening my knowledge about NextAuth which I previously applied in the clone-instagram application. This application is also was created with the aim of learning the redux toolkit. Surely, this application is made using NextJS as a frontend framework and using firebase as the database. The libraries used to help build this website include react-icons and framer-motion.",
      "linkGithub":"https://github.com/siska199/foody-app",
      "link":"https://clone-foody-app199.vercel.app/"
@@ -46,7 +46,7 @@
     "name" :"clone-twitter-199",
     "image" : "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660980181/Portofolio%20%28website%29/Projects/clone-twitter/cover_tr3cvb.png",
     "logo" :"https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660980163/Portofolio%20%28website%29/Projects/clone-twitter/logo_j7wj0v.webp",
-     "stacks" : ["630081da865956294e10a782","6300817d865956294e10a77c","63008a9e865956294e10a7aa","6300822b865956294e10a788"],
+     "stacks" : ["6301910b44487c415102f63d","6301911244487c415102f640","630190f844487c415102f634","630190c544487c415102f62b","6301908544487c415102f616"],
      "about":"The clone twitter application is an application that I made with the aim of learning the mongodb database (using mongoose) and also made with the aim of deepening my skills when using tailwind as a css framework. In this app I use Next JS as the frontend framework and Nextauth as the authentication system with Google as the provider. For management state in this application I use the Redux toolkit which is much easier to use than conventional redux.Libraries used to help build this application include lottie-react, react-icons, adn react-time-ago.",
      "linkGithub":"https://github.com/siska199/clone-twitter-app",
      "link":"https://clone-twitter199.vercel.app/"
@@ -57,8 +57,8 @@
     "name" :"clone-tiktik-199",
     "image" : "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660980564/Portofolio%20%28website%29/Projects/clone-tiktik/cover_hmzuxk.png",
     "logo" :"https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660980562/Portofolio%20%28website%29/Projects/clone-tiktik/logo_b9s6fw.png",
-     "stacks" : ["630081da865956294e10a782","6300817d865956294e10a77c","63008a9e865956294e10a7aa","63008130865956294e10a776"],
-     "about":"The clone tiktik application is an application that I made with the aim of learning the sanity cms and also made with the aim of deepening my skills when using tailwind as a css framework. In this app I use Next JS as the frontend framework and Nextauth as the authentication system with Google as the provider. For management state in this application I use the Redux toolkit which is much easier to use than conventional redux. Libraries used to help build this application include react-icons, adn react-time-ago.",
+     "stacks" : ["6301910b44487c415102f63d","6301911244487c415102f640","6301907944487c415102f613","630190f844487c415102f634","630190b744487c415102f628","6301909944487c415102f61c"],
+     "about":"The clone tiktik application is an application that I made with the aim of learning the sanity cms and typescript. In this app I use Next JS as the frontend framework and Nextauth as the authentication system with Google as the provider. For management state in this application I use the Redux, i choose redux cause i want to rewind my knowladge about redux conventional. Libraries used to help build this application include react-icons, and react-time-ago.",
      "linkGithub":"https://github.com/siska199/tiktik-app",
      "link":"https://tiktik199.vercel.app/"
 }
