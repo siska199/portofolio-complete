@@ -1,5 +1,6 @@
 import { Schema, SchemaTypes, model, models } from "mongoose";
 import stacks from "./stacks";
+import users from "./users";
 
 const CommentSchema = new Schema({
   body: {
@@ -8,7 +9,7 @@ const CommentSchema = new Schema({
   },
   user: {
     type: SchemaTypes.ObjectId,
-    ref: "users",
+    ref: users,
     required: [true, "We need to identify who send the message"],
   },
 });
@@ -20,7 +21,7 @@ const LoveSchema = new Schema({
   },
   user: {
     type: SchemaTypes.ObjectId,
-    ref: "users",
+    ref: users,
     required: true,
   },
 });
