@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useRef, useState, useEffect } from "react";
 import {
   AiFillLinkedin,
   AiOutlineArrowRight,
@@ -8,8 +8,12 @@ import Section from "../layouts/Section";
 import CardLearning from "../atoms/CardLearning";
 import { learningJourneys } from "../../lib/data";
 import Link from "next/link";
+import { useDispatch, useSelector } from "react-redux";
+import { handleGetJourneys } from "../../redux/features/journeySlice";
 
 const MyLearningJourney = () => {
+  const dispatch = useDispatch();
+  const journeys = useSelector((state) => state.journey.value.journeys);
   const [showLeft, setShowLeft] = useState(false);
   const [showRight, setShowRight] = useState(true);
   const cardLJ = useRef(null);
@@ -18,9 +22,15 @@ const MyLearningJourney = () => {
 
   const handleScroll = () => {
     conLJ.current.scrollLeft > 0 ? setShowLeft(true) : setShowLeft(false);
-    (conLJ.current.clientWidth==(conLJ.current.scrollWidth-conLJ.current.scrollLeft))?setShowRight(false) : setShowRight(true);
-
+    conLJ.current.clientWidth ==
+    conLJ.current.scrollWidth - conLJ.current.scrollLeft
+      ? setShowRight(false)
+      : setShowRight(true);
   };
+
+  useEffect(() => {
+    dispatch(handleGetJourneys());
+  }, []);
 
   return (
     <Section id="my-learning-journey">
@@ -30,7 +40,7 @@ const MyLearningJourney = () => {
           {showLeft && (
             <span
               onClick={() => {
-                conLJ.current.scrollLeft -=(widthCardLJ);
+                conLJ.current.scrollLeft -= widthCardLJ;
               }}
               className={`absolute -top-[2rem] font-bold left-0 z-[50] text-end px-3 cursor-pointer`}
             >
@@ -53,7 +63,7 @@ const MyLearningJourney = () => {
             onScroll={handleScroll}
             className="container-lj transition-all duration-300 ease-in-out scroll-smooth px-3 flex w-full overflow-x-scroll gap-4 scrollbar-hidden"
           >
-            {learningJourneys.map((data, i) => (
+            {journeys.map((data, i) => (
               <CardLearning refElm={cardLJ} key={i} data={data} />
             ))}
           </div>

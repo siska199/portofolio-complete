@@ -1,7 +1,7 @@
 
     {
         "name": "React / Next JS",
-        "tingkat": "intermediet",
+        "level": "intermediet",
         "type": "frontend",
     },
     {

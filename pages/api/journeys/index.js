@@ -31,7 +31,11 @@ export default async function (req, res) {
   }
 
   if (method == "GET") {
-    const journeyList = await journeys.find().sort("-createdAt");
-    res.status(500).json(journeyList);
+    try {
+      const journeyList = await journeys.find().sort("createdAt");
+      res.status(200).json(journeyList);
+    } catch (error) {
+      res.status(500).json(error);
+    }
   }
 }
