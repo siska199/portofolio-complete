@@ -3,8 +3,8 @@ import React from 'react'
 const Tooltip = ({message,type}) => {
     let customeStyle
     switch(type){
-        case "love":
-            customeStyle="z-[9999] w-[6rem]"
+        case "project":
+            customeStyle="z-[9999]"
             break;
     }
 

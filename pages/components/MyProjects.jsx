@@ -34,7 +34,7 @@ const MyProjects = () => {
       )}
       <div className="flex flex-col w-full gap-[3rem] md:px-[5rem] ">
         <header className="header-section-menu">My Projects &#128187;</header>
-        <div className="relative min-h-[105vh] md:min-h-[110vh] lg:min-h-[85vh] scrollbar-hidden  w-full overflow-x-hidden">
+        <div className="relative min-h-[110vh] md:min-h-[110vh] lg:min-h-[85vh] scrollbar-hidden  w-full overflow-x-hidden">
           {projects.length > 0 ? (
             projects.map((data, i) => (
               <Project

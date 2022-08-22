@@ -90,7 +90,7 @@ const Project = ({ data, active, prevElement }) => {
             <p className="text-sm text-center font-bold ">
               {data?.loves.length}
             </p>
-            <Tooltip type={"love"} message={"Love this project"} />
+            <Tooltip type={"project"} message={"Love this project"} />
           </div>
 
           <div className="font-thin group relative ">
@@ -103,7 +103,7 @@ const Project = ({ data, active, prevElement }) => {
             <p className="text-sm text-center font-bold ">
               {data?.comments.length}
             </p>
-            <Tooltip type={"love"} message={"Comment this project"} />
+            <Tooltip type={"project"} message={"Comment this project"} />
           </div>
         </div>
       </div>
