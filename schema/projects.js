@@ -12,6 +12,11 @@ const CommentSchema = new Schema({
     ref: users,
     required: [true, "We need to identify who send the message"],
   },
+  createdAt : {
+    type : Date,
+    dafault : Date.now,
+    immutable:true
+  }
 });
 
 const LoveSchema = new Schema({
