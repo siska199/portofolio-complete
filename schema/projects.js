@@ -2,22 +2,22 @@ import { Schema, SchemaTypes, model, models } from "mongoose";
 import stacks from "./stacks";
 import users from "./users";
 
-const CommentSchema = new Schema({
-  body: {
-    type: String,
-    required: [true, "Please fill comment that you want to post"],
+const CommentSchema = new Schema(
+  {
+    body: {
+      type: String,
+      required: [true, "Please fill comment that you want to post"],
+    },
+    user: {
+      type: SchemaTypes.ObjectId,
+      ref: users,
+      required: [true, "We need to identify who send the message"],
+    },
   },
-  user: {
-    type: SchemaTypes.ObjectId,
-    ref: users,
-    required: [true, "We need to identify who send the message"],
-  },
-  createdAt : {
-    type : Date,
-    dafault : Date.now,
-    immutable:true
+  {
+    timestamps: { createdAt: true, updatedAt: true },
   }
-});
+);
 
 const LoveSchema = new Schema({
   body: {
