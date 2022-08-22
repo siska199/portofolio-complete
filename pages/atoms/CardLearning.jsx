@@ -6,7 +6,7 @@ const CardLearning = ({ data, refElm }) => {
   return (
     <section
       ref={refElm}
-      className="p-5 backdrop-blur text-cl200 dark:text-cd100 bg-clCard dark:bg-cdCard min-h-[15rem] min-w-[23rem] flex flex-col gap-2 md:gap-3"
+      className="p-5 backdrop-blur text-cl200 dark:text-cd100 bg-clCard dark:bg-cdCard min-h-[15rem] min-w-[20rem] md:min-w-[23rem] flex flex-col gap-2 md:gap-3"
     >
       <p className="font-thin flex gap-2 items-center md:text-sm text-[0.75rem]">
         {" "}
