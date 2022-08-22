@@ -1,8 +1,8 @@
-import React, {useEffect} from "react";
-import Section from "../layouts/Section";
-import { forntendSkills, backendSkills } from "../../lib/data";
-import CardSkill from "../atoms/CardSkill";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import Section from "../layouts/Section";
+import CardSkill from "../atoms/CardSkill";
+import LoadingLottie from "../atoms/LoadingLottie";
 import { handleGetSkills } from "../../redux/features/skillSlice";
 
 const MySkills = () => {
@@ -17,18 +17,22 @@ const MySkills = () => {
     <Section id="my-skills">
       <div className=" flex flex-col md:w-3/4 gap-[3rem] justify-center px-3 md-px-0">
         <header className="header-section-menu">My Skills 💸</header>
-        <div className="flex flex-wrap md:flex-nowrap gap-[3rem] md:gap-[3rem] justify-center ">
-          <section className={styleCard}>
-            {skills.frontend.map((data, i) => (
-              <CardSkill data={data} key={i} />
-            ))}
-          </section>
-          <section className={styleCard}>
-            {skills.backend.map((data, i) => (
-              <CardSkill data={data} key={i} />
-            ))}
-          </section>
-        </div>
+        {skills.frontend.length > 0 ? (
+          <div className="flex flex-wrap md:flex-nowrap gap-[3rem] md:gap-[3rem] justify-center ">
+            <section className={styleCard}>
+              {skills.frontend.map((data, i) => (
+                <CardSkill data={data} key={i} />
+              ))}
+            </section>
+            <section className={styleCard}>
+              {skills.backend.map((data, i) => (
+                <CardSkill data={data} key={i} />
+              ))}
+            </section>
+          </div>
+        ) : (
+          <LoadingLottie />
+        )}
       </div>
     </Section>
   );

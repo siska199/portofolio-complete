@@ -18,9 +18,7 @@ const Project = ({ data, active, prevElement }) => {
     const html = document.querySelector("html");
     html.classList.add("overflow-y-hidden");
     dispatch(handleGetComments(data._id));
-    setTimeout(() => {
-      dispatch(handleModalComments(true));
-    }, 1000);
+    dispatch(handleModalComments(true));
   };
   const handleLoveProject = () => {
     token

@@ -8,10 +8,12 @@ import {
   handleGetProjects,
   handleModalComments,
 } from "../../redux/features/projectSlice";
+import LoadingLottie from "../atoms/LoadingLottie";
 
 const Comments = () => {
   const dispatch = useDispatch();
   const dataComments = useSelector((state) => state.project.value.dataComments);
+
   const handleCloseComments = () => {
     dispatch(handleModalComments(false));
     dispatch(handleGetProjects());
@@ -31,17 +33,23 @@ const Comments = () => {
         >
           <MdClose />
         </div>
-        <h1 className="text-center font-bold text-[2rem] md:text-[3rem]">
-          {dataComments.title}
-        </h1>
-        <div className="w-[90%] mx-auto justify-center items-center mt-[3rem] ">
-          <AddComment />
-          <div className="flex flex-col mt-5 gap-3 max-h-[20rem] overflow-y-scroll">
-            {dataComments.comments.map((data, i) => (
-              <Comment data={data} key={i} />
-            ))}
-          </div>
-        </div>
+        {dataComments.title ? (
+          <>
+            <h1 className="text-center font-bold text-[2rem] md:text-[3rem]">
+              {dataComments.title}
+            </h1>
+            <div className="w-[90%] mx-auto justify-center items-center mt-[3rem] ">
+              <AddComment />
+              <div className="flex flex-col mt-5 gap-3 max-h-[20rem] overflow-y-scroll">
+                {dataComments.comments.map((data, i) => (
+                  <Comment data={data} key={i} />
+                ))}
+              </div>
+            </div>
+          </>
+        ) : (
+          <LoadingLottie />
+        )}
       </div>
     </Modal>
   );
