@@ -13,10 +13,13 @@ export default async function (req, res) {
       const dataProject = await projects
         .findOne({ _id })
         .populate("comments.user", { username: 1, image: 1 });
+
       res.status(200).json({
         _id: dataProject._id,
         title: dataProject.title,
-        comments: dataProject.comments,
+        comments: dataProject.comments.sort(
+          (a, b) => new Date(b.createdAt) - new Date(a.createdAt)
+        ),
       });
     } catch (error) {
       res.status(500).send(`${error}`);

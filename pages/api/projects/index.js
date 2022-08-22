@@ -26,7 +26,6 @@ export default async function (req, res) {
       }));
       res.status(200).json(modifiedProjectList);
     } catch (error) {
-      console.log(error);
       res.status(500).json(error);
     }
   }
