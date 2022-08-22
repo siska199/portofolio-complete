@@ -29,7 +29,9 @@ const handleRegister = createAsyncThunk("auth/register", async (form) => {
       },
     };
   } catch (error) {
-    throw error;
+    return {
+      error: error.response.data,
+    };
   }
 });
 
@@ -51,7 +53,9 @@ const handleLogin = createAsyncThunk("auth/login", async (form) => {
       },
     };
   } catch (error) {
-    throw error;
+    return {
+      error: error.response.data,
+    };
   }
 });
 
@@ -92,8 +96,13 @@ const authSlice = createSlice({
     },
     [handleRegister.fulfilled]: (state, action) => {
       state.value.loadingAuth = false;
-      state.value.token = action.payload.token;
-      state.value.userData = action.payload.userData;
+      if (action.payload.error) {
+        state.value.error = action.payload.error;
+      } else {
+        state.value.error = null;
+        state.value.token = action.payload.token;
+        state.value.userData = action.payload.userData;
+      }
     },
     [handleRegister.rejected]: (state, action) => {
       state.value.loadingAuth = false;
@@ -104,8 +113,13 @@ const authSlice = createSlice({
     },
     [handleLogin.fulfilled]: (state, action) => {
       state.value.loadingAuth = false;
-      state.value.token = action.payload.token;
-      state.value.userData = action.payload.userData;
+      if (action.payload.error) {
+        state.value.error = action.payload.error;
+      } else {
+        state.value.error = null;
+        state.value.token = action.payload.token;
+        state.value.userData = action.payload.userData;
+      }
     },
     [handleLogin.rejected]: (state, action) => {
       state.value.loadingAuth = false;

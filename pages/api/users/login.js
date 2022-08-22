@@ -19,7 +19,7 @@ export default async function (req, res) {
       }
       const userExist = await users.findOne({ email: body.email });
       if (!userExist)
-        return res.status(400).send("Email or password dosent match");
+        return res.status(400).send("This email hasn't registered");
 
       const veryfiedPassword = await userExist.comparePassword(body.password);
       if (!veryfiedPassword)
@@ -37,7 +37,7 @@ export default async function (req, res) {
         token,
       });
     } catch (error) {
-      res.status(500).json(error);
+      res.status(500).send(error);
     }
   }
 }

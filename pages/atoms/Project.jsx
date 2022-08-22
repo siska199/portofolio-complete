@@ -20,7 +20,7 @@ const Project = ({ data, active, prevElement }) => {
     dispatch(handleGetComments(data._id));
     setTimeout(() => {
       dispatch(handleModalComments(true));
-    }, 100);
+    }, 1000);
   };
   const handleLoveProject = () => {
     token

@@ -20,12 +20,13 @@ const Auth = () => {
   };
   const [form, setForm] = useState(initialForm);
   const loadingAuth = useSelector((state) => state.auth.value.loadingAuth);
+  const errorAPI = useSelector((state) => state.auth.value.error);
+  const [showError, setShowError] = useState(false);
   const modal = useSelector((state) => state.auth.value.modal);
   const type = useSelector((state) => state.auth.value.type);
   const [typeAuth, setTypeAuth] = useState(type);
   const disabledButtonLogin =
     type == "login" && form.email && form.password ? false : true;
-
   const disabledButtonRegister =
     type == "register" && form.username && form.email && form.password
       ? false
@@ -55,8 +56,15 @@ const Auth = () => {
     e.preventDefault();
     dispatch(type == "login" ? handleLogin(form) : handleRegister(form)).then(
       () => {
-        setForm(initialForm);
-        handleCloseAuth();
+        if (errorAPI) {
+          setShowError(true);
+          setTimeout(() => {
+            setShowError(false);
+          }, 5000);
+        } else {
+          setForm(initialForm);
+          handleCloseAuth();
+        }
       }
     );
   };
@@ -77,7 +85,7 @@ const Auth = () => {
         <h1 className="text-center font-bold text-[1.5rem]">
           {typeAuth == "login" ? "Sign In" : "Sign Up"}
         </h1>
-
+        {showError && <p className="text-center bg-rose-500 text-gray-300 text-thin text-sm py-1 rounded-md">{errorAPI}</p>}
         {dataFormAuth.map((data, i) => {
           if (typeAuth == "login" && data.name == "username") return "";
           return (
@@ -93,9 +101,9 @@ const Auth = () => {
         <div>
           <button
             className={`text-center bg-cl700 dark:bg-cd800 w-full py-1 cursor-pointer disabled:cursor-default`}
-            // disabled={
-            //   type == "login" ? disabledButtonLogin : disabledButtonRegister
-            // }
+            disabled={
+              type == "login" ? disabledButtonLogin : disabledButtonRegister
+            }
             onClick={(e) => handleOnSubmit(e)}
           >
             {typeAuth == "login" ? "Login" : "Register"}
