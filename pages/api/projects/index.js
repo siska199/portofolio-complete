@@ -11,7 +11,7 @@ export default async function (req, res) {
     try {
       const projectList = await projects
         .find()
-        .sort("-createdAt")
+        // .sort("-createdAt")
         .populate("stacks", ["type", "name", "image", "_id"])
         .populate("comments")
         .lean();

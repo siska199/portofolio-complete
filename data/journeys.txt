@@ -2,7 +2,7 @@
     "periode":"26 Januari 2022 - Sekarang",
     "constitution":"SIGMATECH (IT Consultan in PT Astra International Tbk.)",
     "activities" : [
-         "Aplikasi TMS (Transportation Management System) --> Project Approval : Build feature approval truck (nopol registration) that will do the delivery of the motorbike.",
+      "Aplikasi TMS (Transportation Management System) --> Project Approval : Build feature approval truck (nopol registration) that will do the delivery of the motorbike.",
       "Aplikasi TMS --> Project GPS : Build feuture report for tracking truck that will do the delivery of the motorbike",
       "Aplikasi Avacado --> Project User Management : Build feature usermanagement that maintain (search/add/edit) user role and user master"
     ],

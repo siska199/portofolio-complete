@@ -69,6 +69,10 @@
     ::-webkit-scrollbar-thumb:hover {
         @apply bg-cl600 dark:bg-cd600
     }
+    input:-webkit-autofill {
+        color: #2a2a2a !important;
+        background-color : transparent;
+    }
 }
 
 .container-input ~ p{
