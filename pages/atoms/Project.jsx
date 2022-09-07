@@ -40,7 +40,7 @@ const Project = ({ data, active, prevElement }) => {
           alt=""
           className="object-contain w-[20rem] shadow-md shadow-white"
         />
-        <div className="absolute left-[4.5rem] bottom-[-1rem] flex justify-center gap-3 ">
+        <div className="absolute w-full bottom-[-1rem] flex justify-center gap-3 ">
           {data?.stacks.map((data, i) =>
             data.image ? (
               <img

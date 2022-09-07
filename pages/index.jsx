@@ -15,6 +15,7 @@ import Auth from "./components/Auth";
 import Footer from "./components/Footer";
 import Tooltip from "./atoms/Tooltip";
 import Comments from "./components/Comments";
+import ScrollToUp from "./atoms/ScrollToUp";
 import { handleModalMenu } from "../redux/features/menuSlice";
 
 const Home = () => {
@@ -22,6 +23,7 @@ const Home = () => {
   const modalAuth = useSelector((state) => state.auth.value.modal);
   const modalMenu = useSelector((state) => state.menu.value.modal);
   const modalComment = useSelector((state) => state.project.value.modalComment);
+  const [showUpScroll, setShowUpScroll] = useState(false);
 
   const styleIconMenu =
     "cursor-pointer z-[99] text-white text-[2rem] md:text-[3rem] fixed top-3 left-3 transition-all  duration-1000 ease-in-out";
@@ -53,6 +55,17 @@ const Home = () => {
     };
   }, []);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.pageYOffset > 10) {
+        setShowUpScroll(true);
+      } else {
+        setShowUpScroll(false);
+      }
+    };
+    window.addEventListener("scroll", handleScroll);
+  }, []);
+
   const handleChangeTheme = () => {
     html.classList.toggle("dark");
   };
@@ -64,6 +77,7 @@ const Home = () => {
   const options = {
     threshold: 0.7,
   };
+
   return (
     <Page title={"Portofolio"} type={"homepage"}>
       <Sidebar activeId={activeId} setActiveId={setActiveId} />
@@ -99,6 +113,7 @@ const Home = () => {
 
       {modalAuth && <Auth />}
       {modalComment && <Comments />}
+      {showUpScroll && <ScrollToUp elm="html" />}
     </Page>
   );
 };
