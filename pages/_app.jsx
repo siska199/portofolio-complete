@@ -3,6 +3,7 @@ import { Provider, useDispatch} from "react-redux";
 import { handleRefresh } from "../redux/features/authSlice";
 import store from "../redux/store";
 import "../styles/globals.css";
+import 'react-notifications/lib/notifications.css';
 
 function MyApp({ Component, pageProps }) {
   return (

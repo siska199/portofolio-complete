@@ -1,4 +1,5 @@
 import React from "react";
+import { NotificationManager } from "react-notifications";
 import { useDispatch, useSelector } from "react-redux";
 import { handleLogout } from "../../redux/features/authSlice";
 import { handleModalMenu } from "../../redux/features/menuSlice";
@@ -12,6 +13,7 @@ const InfoUser = () => {
     html.classList.remove("overflow-y-hidden");
     dispatch(handleLogout());
     dispatch(handleModalMenu(false));
+    NotificationManager.success("Success message", "Logout Success", 3000);
   };
   return (
     <section className="mx-[2rem] p-3 flex gap-4 border-[0.005rem] rounded-xl dark:border-cd600 border-cl600">

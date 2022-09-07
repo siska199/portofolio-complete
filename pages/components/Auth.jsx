@@ -1,3 +1,4 @@
+import { NotificationManager } from "react-notifications";
 import React, { useState } from "react";
 import { MdClose } from "react-icons/md";
 import { useDispatch, useSelector } from "react-redux";
@@ -64,6 +65,17 @@ const Auth = () => {
         } else {
           setForm(initialForm);
           handleCloseAuth();
+          NotificationManager.success(
+            "Success message",
+            type == "login" ? "Login Success" : "Register Success",
+            3000
+          );
+          type == "register" &&
+            NotificationManager.success(
+              "Success message",
+              "Now you're have been login",
+              3000
+            );
         }
       }
     );
@@ -85,7 +97,11 @@ const Auth = () => {
         <h1 className="text-center font-bold text-[1.5rem]">
           {typeAuth == "login" ? "Sign In" : "Sign Up"}
         </h1>
-        {showError && <p className="text-center bg-rose-500 text-gray-300 text-thin text-sm py-1 rounded-md">{errorAPI}</p>}
+        {showError && (
+          <p className="text-center bg-rose-500 text-gray-300 text-thin text-sm py-1 rounded-md">
+            {errorAPI}
+          </p>
+        )}
         {dataFormAuth.map((data, i) => {
           if (typeAuth == "login" && data.name == "username") return "";
           return (

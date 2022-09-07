@@ -1,3 +1,4 @@
+import { NotificationContainer } from "react-notifications";
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiOutlineClose } from "react-icons/ai";
@@ -114,6 +115,7 @@ const Home = () => {
       {modalAuth && <Auth />}
       {modalComment && <Comments />}
       {showUpScroll && <ScrollToUp elm="html" />}
+      <NotificationContainer />
     </Page>
   );
 };
