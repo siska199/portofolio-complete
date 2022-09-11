@@ -86,14 +86,14 @@ input:-webkit-autofill:active {
 
 @keyframes autofill {
     100% {
-        background: transparent;
+        background: #1e293b;
         color: inherit;
     }
 }
 
 @-webkit-keyframes autofill {
     100% {
-        background: transparent;
+        background: #1e293b;
         color: inherit;
     }
 }
