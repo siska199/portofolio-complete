@@ -1,5 +1,5 @@
 [
-1.
+
     {
         "type": {
             "name": "Superset Javascript"
@@ -7,7 +7,7 @@
         "name": "Typescript",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1661043662/Portofolio%20%28website%29/Stacks/typescript_gkxvvs.png"
     }
-2.
+,
     {
         "type": {
             "name": "Database"
@@ -15,7 +15,7 @@
         "name": "Mongodb / Mongoose",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/mongodb_prgpbk.png"
     }
-3.
+,
     {
         "type": {
             "name": "Database"
@@ -23,7 +23,7 @@
         "name": "MySql",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/mysql_rkv51p.png"
     }
-4.
+,
     {
         "type": {
             "name": "cms"
@@ -31,7 +31,7 @@
         "name": "Sanity",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1660977376/Portofolio%20%28website%29/Stacks/sanity_ckmku2.png"
     }
-5.
+,
     {
         "type": {
             "name": "query language"
@@ -39,7 +39,7 @@
         "name": "Graphql",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/graphql_mi7cuj.png"
     }
-6.
+,
     {
         "type": {
             "name": "Framework Backend"
@@ -47,7 +47,7 @@
         "name": "Express Js",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/express_bmoc0j.png"
     }
-7.
+,
     {
         "type": {
             "name": "Framework Backend"
@@ -55,7 +55,7 @@
         "name": "Firebase",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/firebase_dagc1x.png"
     }
-8.
+,
     {
         "type": {
             "name": "State Management"
@@ -63,7 +63,7 @@
         "name": "Redux",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/redux_rlluzu.png"
     }
-9.
+,
     {
         "type": {
             "name": "State Management"
@@ -71,7 +71,7 @@
         "name": "Redux Toolkit",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/redux_rlluzu.png"
     }
-10.
+,
     {
         "type": {
             "name": "State Management"
@@ -79,7 +79,7 @@
         "name": "React Context",
         "image": ""
     }
-11.
+,
     {
         "type": {
             "name": "Framework Css"
@@ -87,7 +87,7 @@
         "name": "Styled Components",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/styled-components_hs23dc.png"
     }
-12.
+,
     {
         "type": {
             "name": "Framework Css"
@@ -95,7 +95,7 @@
         "name": "Tailwind",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/tailwind_pwthq6.png"
     }
-13.
+,
     {
         "type": {
             "name": "Framework Css"
@@ -103,7 +103,7 @@
         "name": "Bootstrap",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414261/Portofolio%20%28website%29/Stacks/bootstrap_ribkw9.png"
     }
-14.
+,
     {
         "type": {
             "name": "Framework Frontend"
@@ -111,7 +111,7 @@
         "name": "React",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/react_ouwqke.webp"
     }
-15.
+,
     {
         "type": {
             "name": "Framework Frontend"
@@ -119,13 +119,20 @@
         "name": "Next Js",
         "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1659414262/Portofolio%20%28website%29/Stacks/nextjs_aeiwsq.png"
     }
-16.
+,
     {
         "type": {
             "name": "authentication"
         },
         "name": "NextAuth Js",
         "image": ""
+    }
+    {
+        "type": {
+            "name": "websocket"
+        },
+        "name": "socket.io",
+        "image": "https://res.cloudinary.com/university-state-of-malang-city/image/upload/v1662532904/Portofolio%20%28website%29/Stacks/socket.io_oomg06.webp"
     }
 
 ]

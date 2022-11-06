@@ -27,16 +27,17 @@ export default async function (req, res) {
           .send("This user dont have authorization to add stack data");
 
       const { body } = req;
-      const data = {
+      console.log("body: ", body);
+      const createStack = await stacks.create({
         ...body,
         name: UppercaseEachLetter(body.name),
         type: {
           name: UppercaseEachLetter(body.type.name),
         },
-      };
-      const createStack = await stacks.create(data);
+      });
       res.status(201).json(createStack);
     } catch (error) {
+      console.log(error);
       let msgError = error.errors ? [] : "";
       if (error.errors) {
         Object.keys(error.errors).forEach((key) => {

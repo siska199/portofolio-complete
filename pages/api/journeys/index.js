@@ -32,7 +32,7 @@ export default async function (req, res) {
 
   if (method == "GET") {
     try {
-      const journeyList = await journeys.find().sort("createdAt");
+      const journeyList = await journeys.find().sort("-createdAt");
       res.status(200).json(journeyList);
     } catch (error) {
       res.status(500).json(error);
