@@ -6,14 +6,14 @@ export default async function (req, res) {
   const { method } = req;
   const userToken = infoToken(req, res);
   await dbConnect();
-  
+
   if (method == "GET") {
     try {
       const projectList = await projects
         .find()
-        // .sort("-createdAt")
         .populate("stacks", ["type", "name", "image", "_id"])
         .populate("comments")
+        .sort("-createdAt")
         .lean();
 
       const modifiedProjectList = projectList.map((project) => ({
@@ -26,13 +26,14 @@ export default async function (req, res) {
       }));
       res.status(200).json(modifiedProjectList);
     } catch (error) {
+      console.log("error", error);
       res.status(500).json(error);
     }
   }
 
   if (method == "POST") {
-    const { body } = req;
     try {
+      const { body } = req;
       if (!userToken || userToken.role == "visitor")
         return res
           .status(401)

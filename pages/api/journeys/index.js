@@ -4,11 +4,11 @@ import { infoToken } from "../../../lib/function";
 
 export default async function (req, res) {
   const { method } = req;
-  const userToken = infoToken(req, res);
   await dbConnect();
 
   if (method == "POST") {
     try {
+      const userToken = infoToken(req, res);
       if (!userToken || userToken.role == "visitor")
         return res
           .status(401)

@@ -6,14 +6,14 @@ export default async function (req, res) {
   const { method } = req;
   const userToken = infoToken(req, res);
   await dbConnect();
-  if (!userToken) {
-    return res.status(401).send({
-      message: "Access denied",
-    });
-  }
 
   if (method == "GET") {
     try {
+      if (!userToken) {
+        return res.status(401).send({
+          message: "Access denied",
+        });
+      }
       const userData = await users.findOne({ _id: userToken._id });
       const token = generateToken({ _id: userData._id, role: userData.role });
       res.status(202).json({
@@ -26,6 +26,7 @@ export default async function (req, res) {
         token,
       });
     } catch (error) {
+      console.log(error);
       res.status(500).json(error);
     }
   }
